@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Hanni\\source\\repos\\The Movies\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|c:\\users\\hanni\\source\\repos\\the movies\\the movies\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|c:\\users\\hanni\\source\\repos\\the movies\\the movies\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|c:\\users\\hanni\\source\\repos\\the movies\\the movies\\the movies.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\the movies.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,26 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "The Movies\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\MainWindow.xaml",
-              "RelativeToolTip": "The Movies\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-14T09:21:22.141Z",
+              "Title": "The Movies",
+              "DocumentMoniker": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\The Movies.csproj",
+              "RelativeDocumentMoniker": "The Movies\\The Movies.csproj",
+              "ToolTip": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\The Movies.csproj",
+              "RelativeToolTip": "The Movies\\The Movies.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-14T10:18:12.271Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "The Movies\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\MainWindow.xaml.cs",
-              "RelativeToolTip": "The Movies\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T09:21:19.451Z"
             },
             {
               "$type": "Bookmark",
