@@ -216,5 +216,8 @@ Uptime Checker/
 */.vs/*/v17/*
 .vs/*/v17/*
 
+*/.vs/*/DesignTimeBuild
+.vs/*/DesignTimeBuild
+
 
 
