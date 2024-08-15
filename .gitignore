@@ -207,8 +207,9 @@ Report20230525-0945.diagsession
 tralala
 Uptime Checker/
 
-*/.vs/*/ProjectEvaluation/*
-.vs/*/ProjectEvaluation/*
+
+*/.vs/ProjectEvaluation/*
+
 
 */.vs/*/FileContentIndex/*
 .vs/*/FileContentIndex/*
