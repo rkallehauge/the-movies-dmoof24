@@ -1,9 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Hanni\\source\\repos\\The Movies\\",
+  "WorkspaceRootPath": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|c:\\users\\hanni\\source\\repos\\the movies\\the movies\\the movies.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\command\\createmovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\command\\createmovie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\view\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\model\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\model\\movierepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\model\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\viewmodel\\movieviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\viewmodel\\movieviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|d:\\datamatiker\\git repositories\\dmoof24-opgaver\\the movies\\the movies\\the movies.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{F62FE144-89E4-468B-B303-9697B73A285F}|The Movies\\The Movies.csproj|solutionrelative:the movies\\the movies.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     }
   ],
@@ -14,23 +42,109 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MovieRepository.cs",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\Model\\MovieRepository.cs",
+              "RelativeDocumentMoniker": "The Movies\\Model\\MovieRepository.cs",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\Model\\MovieRepository.cs",
+              "RelativeToolTip": "The Movies\\Model\\MovieRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T10:47:27.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\View\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "The Movies\\View\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\View\\MainWindow.xaml.cs",
+              "RelativeToolTip": "The Movies\\View\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAYwB4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T10:47:56.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\ViewModel\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "The Movies\\ViewModel\\MainViewModel.cs",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\ViewModel\\MainViewModel.cs",
+              "RelativeToolTip": "The Movies\\ViewModel\\MainViewModel.cs",
+              "ViewState": "AQIAADcAAAAAAAAAAAAnwEAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T10:39:55.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Movie.cs",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\Model\\Movie.cs",
+              "RelativeDocumentMoniker": "The Movies\\Model\\Movie.cs",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\Model\\Movie.cs",
+              "RelativeToolTip": "The Movies\\Model\\Movie.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T10:31:22.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MovieViewModel.cs",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\ViewModel\\MovieViewModel.cs",
+              "RelativeDocumentMoniker": "The Movies\\ViewModel\\MovieViewModel.cs",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\ViewModel\\MovieViewModel.cs",
+              "RelativeToolTip": "The Movies\\ViewModel\\MovieViewModel.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAiwAoAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T10:36:27.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\View\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "The Movies\\View\\MainWindow.xaml",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\View\\MainWindow.xaml",
+              "RelativeToolTip": "The Movies\\View\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-15T10:31:05.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CreateMovie.cs",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\Command\\CreateMovie.cs",
+              "RelativeDocumentMoniker": "The Movies\\Command\\CreateMovie.cs",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\Command\\CreateMovie.cs",
+              "RelativeToolTip": "The Movies\\Command\\CreateMovie.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAvwCAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-15T10:23:29.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "The Movies",
-              "DocumentMoniker": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\The Movies.csproj",
+              "DocumentMoniker": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\The Movies.csproj",
               "RelativeDocumentMoniker": "The Movies\\The Movies.csproj",
-              "ToolTip": "C:\\Users\\Hanni\\source\\repos\\The Movies\\The Movies\\The Movies.csproj",
+              "ToolTip": "D:\\Datamatiker\\Git repositories\\dmoof24-opgaver\\The Movies\\The Movies\\The Movies.csproj",
               "RelativeToolTip": "The Movies\\The Movies.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-08-14T10:18:12.271Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
             }
           ]
         }

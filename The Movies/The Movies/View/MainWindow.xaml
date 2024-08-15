@@ -10,7 +10,7 @@
         <TextBox Name="Title" HorizontalAlignment="Left" Margin="101,72,0,0" TextWrapping="Wrap" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Genre" HorizontalAlignment="Left" Margin="101,135,0,0" TextWrapping="Wrap" Text="{Binding Genre, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="Duration" HorizontalAlignment="Left" Margin="101,199,0,0" TextWrapping="Wrap" Text="{Binding Duration, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Opret film" HorizontalAlignment="Left" Margin="181,255,0,0" VerticalAlignment="Top"/>
+        <Button Content="Opret film" HorizontalAlignment="Left" Margin="181,255,0,0" VerticalAlignment="Top" Command="{Binding CreateCmd}" CommandParameter="{Binding UpdateSourceTrigger=PropertyChanged}" x:Name="btnCreateMovie"/>
 
     </Grid>
 </Window>

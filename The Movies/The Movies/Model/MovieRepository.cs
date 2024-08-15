@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace The_Movies.Model
 {
-    internal class MovieRepository
+    public class MovieRepository
     {
-        List<Movie> _movies;
+        List<Movie> movies = new List<Movie>();
 
-        public void Add(Movie movie)
+        public List<Movie> GetAll()
         {
-            _movies.Add(movie);
+            return movies;
         }
     }
 }
