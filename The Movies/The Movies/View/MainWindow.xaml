@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TextBox Name="Title" HorizontalAlignment="Left" Margin="101,72,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <TextBox Name="Genre" HorizontalAlignment="Left" Margin="101,135,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Duration" HorizontalAlignment="Left" Margin="101,199,0,0" TextWrapping="Wrap" Text="Duration" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Opret film" HorizontalAlignment="Left" Margin="181,255,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
