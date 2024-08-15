@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,23 @@ namespace The_Movies.Model
 {
     internal class MovieRepository
     {
-        List<Movie> _movies;
+        List<Movie>? _movies;
+
+        public MovieRepository()
+        {
+            _movies = new List<Movie>();
+        }
 
         public void Add(Movie movie)
         {
-            _movies.Add(movie);
+            if(_movies is not null)
+                _movies.Add(movie);
+            Debug.WriteLine("\n");
+            foreach (Movie __movie in _movies)
+            {
+                Debug.WriteLine(__movie);
+            }
+            Debug.WriteLine("\n");
         }
     }
 }
