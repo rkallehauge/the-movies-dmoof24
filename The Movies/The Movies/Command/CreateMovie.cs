@@ -12,6 +12,7 @@ namespace The_Movies.Command
     internal class CreateMovie : ICommand
     {
 
+
         public CreateMovie(Func<object, bool> canExecute, Action<object> method)
         {
             MethodExecute = method;

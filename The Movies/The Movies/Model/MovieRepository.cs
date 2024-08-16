@@ -21,6 +21,11 @@ namespace The_Movies.Model
         {
             if(_movies is not null)
                 _movies.Add(movie);
+
+            foreach (Movie cur in _movies)
+            {
+                Debug.WriteLine(cur.ToString());
+            }
         }
     }
 }

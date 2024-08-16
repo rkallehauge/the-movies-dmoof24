@@ -26,7 +26,6 @@ namespace The_Movies
             InitializeComponent();
             
             MainViewModel mainViewModel = new MainViewModel();
-            mainViewModel.init();
             DataContext = mainViewModel;
         
         }

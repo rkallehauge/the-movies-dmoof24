@@ -19,8 +19,6 @@ namespace The_Movies.ViewModel
 
         MovieRepository movieRepository;
 
-        int durationStore;
-
         private CreateMovie? createMovieCommand;
         public CreateMovie? CreateMovieCommand
         {
@@ -31,13 +29,8 @@ namespace The_Movies.ViewModel
         {
             Movie movie = new Movie();
             movieRepository = new MovieRepository();
-        }
-
-        public void init()
-        {
             createMovieCommand = new CreateMovie(MovieCreatable, MovieCreate);
         }
-
 
         public bool MovieCreatable(object param)
         {
@@ -46,8 +39,8 @@ namespace The_Movies.ViewModel
                 return false;
             }
 
-
-            if(!int.TryParse(duration, out durationStore))
+            int blob;
+            if(!int.TryParse(duration, out blob))
             {
                 return false;
             }
@@ -62,7 +55,7 @@ namespace The_Movies.ViewModel
 
             movie.Title = title;
             movie.Genre = genre;
-            movie.Duration = durationStore;
+            movie.Duration = int.Parse(duration);
             movieRepository.Add(movie);
             
         }
