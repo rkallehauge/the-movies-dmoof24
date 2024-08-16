@@ -11,8 +11,6 @@ namespace The_Movies.Command
 {
     internal class CreateMovie : ICommand
     {
-        MainViewModel _mainViewModel;
-
 
         public CreateMovie(Func<object, bool> canExecute, Action<object> method)
         {
@@ -20,7 +18,10 @@ namespace The_Movies.Command
             MethodCanExecute = canExecute;
         }
 
+        // Method to execute on 
         public Action<object> MethodExecute { get; set; }
+
+        // Guard method to determine executeable state
         public Func<object, bool> MethodCanExecute { get; set; }
 
         public event EventHandler CanExecuteChanged;

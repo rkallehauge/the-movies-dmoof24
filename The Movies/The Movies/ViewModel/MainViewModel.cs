@@ -18,14 +18,8 @@ namespace The_Movies.ViewModel
     {
 
         MovieRepository movieRepository;
-        private bool canCreate;
 
-        private int durationStore;
-
-        public bool CanCreate
-        {
-            get { return canCreate; }
-        }
+        int durationStore;
 
         private CreateMovie? createMovieCommand;
         public CreateMovie? CreateMovieCommand
@@ -51,6 +45,8 @@ namespace The_Movies.ViewModel
             {
                 return false;
             }
+
+
             if(!int.TryParse(duration, out durationStore))
             {
                 return false;

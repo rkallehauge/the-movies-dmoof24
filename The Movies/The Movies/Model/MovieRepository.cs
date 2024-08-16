@@ -21,12 +21,6 @@ namespace The_Movies.Model
         {
             if(_movies is not null)
                 _movies.Add(movie);
-            Debug.WriteLine("\n");
-            foreach (Movie __movie in _movies)
-            {
-                Debug.WriteLine(__movie);
-            }
-            Debug.WriteLine("\n");
         }
     }
 }

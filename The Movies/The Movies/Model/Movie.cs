@@ -12,5 +12,10 @@ namespace The_Movies.Model
         public string? Genre { get; set; }
         public int? Duration { get; set; }
 
+
+        public override string ToString()
+        {
+            return $"Title:{Title} Genre:{Genre} {Duration} length in minutes";
+        }
     }
 }
