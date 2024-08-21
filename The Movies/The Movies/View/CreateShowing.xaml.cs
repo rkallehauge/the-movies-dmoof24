@@ -23,5 +23,7 @@ namespace The_Movies.View
         {
             InitializeComponent();
         }
-    }
+
+
+	}
 }
