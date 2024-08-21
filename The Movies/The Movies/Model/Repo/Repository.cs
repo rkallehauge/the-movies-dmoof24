@@ -26,7 +26,7 @@ namespace The_Movies.Model.Repo
         // instead of calling checkParam in all methods
         // Delegate add, remove, clear, update;
 
-        private Repository(){
+        protected Repository(){
             _elements = new List<T>();
         }
 
