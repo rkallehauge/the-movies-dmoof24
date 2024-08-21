@@ -7,15 +7,30 @@ namespace TheMoviesTesting
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void CreateCinemaAndScreens()
+        string name = "Test Cinema 1";
+        string cityName = "Aalborg";
+        Cinema cinema;
+
+        CinemaRepository cinemaRepository;
+
+
+        [TestInitialize]
+        public void Init()
         {
             // Create Cinema
-            Cinema cinema = new Cinema();
-            cinema.Name = "Test Cinema 1";
-            cinema.CityName = "Aalborg";
+            cinema = new Cinema();
+            cinema.Name = name;
+            cinema.CityName = cityName;
 
-            
+            cinemaRepository = new CinemaRepository();
+            cinemaRepository.Add(cinema);
+        }
+
+        [TestMethod]
+        public void CinemaNamesSetCorrectly()
+        {
+            Assert.AreEqual(cinema.Name, name);
+            Assert.AreEqual(cinema.CityName, cityName);
         }
     }
 }

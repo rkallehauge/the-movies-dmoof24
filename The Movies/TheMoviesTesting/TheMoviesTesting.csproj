@@ -17,9 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\The Movies\The Movies.csproj">
-      <Aliases>1</Aliases>
-    </ProjectReference>
+    <ProjectReference Include="..\The Movies\The Movies.csproj" />
   </ItemGroup>
 
   <ItemGroup>

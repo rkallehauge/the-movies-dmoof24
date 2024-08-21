@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using The_Movies.Helper;
 
 namespace The_Movies
 {
@@ -13,5 +14,7 @@ namespace The_Movies
     /// </summary>
     public partial class App : Application
     {
+        // Start off with importing .csv from either excel or persistence to then continue with
+        Importer importer = new Importer();
     }
 }

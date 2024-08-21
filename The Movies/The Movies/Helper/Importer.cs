@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Movies.ViewModel
+namespace The_Movies.Helper
 {
-    public class ShowingOverviewViewModel : ViewModelBase
+    /**
+     * Creates classes
+     */
+    public class Importer
     {
+
     }
 }

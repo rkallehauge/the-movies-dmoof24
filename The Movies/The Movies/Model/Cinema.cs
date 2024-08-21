@@ -11,10 +11,10 @@ namespace The_Movies.Model
         int screenAmount = 5;
 
         List<Screen> screens;
-        public List<Screen> Screens { get { return Screens; } }
+        public List<Screen> Screens { get { return screens; } }
 
-        public string Name { get; set; }
-        public string CityName { get; set; }
+        public string? Name { get; set; }
+        public string? CityName { get; set; }
 
         public Cinema()
         {

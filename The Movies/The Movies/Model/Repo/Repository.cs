@@ -11,18 +11,29 @@ namespace The_Movies.Model.Repo
         List<T> _elements;
 
 
+        // technically not threadsafe code, but it works
+        private static Repository<T> _instance;
+        public static Repository<T> GetInstance()
+        {
+            if(_instance is null)
+            {
+                _instance = new Repository<T>();
+            }
+            return _instance;
+        }
+
         // Somehow listen to all methods and check whether parameter is valid
         // instead of calling checkParam in all methods
         // Delegate add, remove, clear, update;
 
-        public Repository(){
+        private Repository(){
             _elements = new List<T>();
         }
 
-        public Repository(List<T> elements)
-        {
-            _elements = elements;
-        }
+        //private Repository(List<T> elements)
+        //{
+        //    _elements = elements;
+        //}
 
 
         public void Add(T element)
