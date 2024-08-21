@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace The_Movies.Model.Repo
 {
-    internal class Repository<T>
+    public class Repository<T>
     {
         List<T> _elements;
 

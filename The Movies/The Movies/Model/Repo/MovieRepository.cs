@@ -9,7 +9,7 @@ using The_Movies.Model.Repo;
 
 namespace The_Movies.Model
 {
-    internal class MovieRepository : Repository<Movie>
+    public class MovieRepository : Repository<Movie>
     {
         
      

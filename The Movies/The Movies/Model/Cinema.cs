@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace The_Movies.Model
 {
-    internal class Cinema
+    public class Cinema
     {
         int screenAmount = 5;
 
