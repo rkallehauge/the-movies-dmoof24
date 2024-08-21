@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using The_Movies.Helper;
+using The_Movies.Model.Repo;
+using The_Movies.Model;
+using System.Diagnostics;
 
 namespace The_Movies
 {
@@ -34,7 +37,25 @@ namespace The_Movies
                 // Open document
                 string filename = dialog.FileName;
             }
-            Importer importer = new Importer(dialog.FileName, exportFile);
+
+
+            Importer importer = new Importer();
+            Repository<Cinema> cinemaRepo = CinemaRepository.GetInstance();
+            Debug.WriteLine(cinemaRepo);
+
+            importer.CinemaRepo = cinemaRepo;
+
+            Repository<Movie> movieRepo = MovieRepository.GetInstance();
+
+            importer.MovieRepo = movieRepo;
+            //Repository<Showing> showingRepo = ShowingRepository.GetInstance();
+
+            importer.Import(dialog.FileName, exportFile);
+
+
+
+
+
             
         }
     }

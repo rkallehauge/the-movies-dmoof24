@@ -33,10 +33,22 @@ namespace The_Movies.Model
         private void initScreens()
         {
             screens = new List<Screen>();
-            for (int i = 1; i <= Screens.Count; i++)
+            for (int i = 1; i <= screenAmount; i++)
             {
                 screens.Add(new Screen(i));
             }
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if(obj == null) return false;
+            if(obj.GetType() != typeof(Cinema)) return false;
+
+            Cinema other = obj as Cinema;
+            if(other.Name != Name) return false;
+            if(other.CityName != CityName) return false;
+
+            return true;
         }
     }
 }

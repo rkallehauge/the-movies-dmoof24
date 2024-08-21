@@ -66,6 +66,19 @@ namespace The_Movies.Model.Repo
             }
         }
 
+        public List<T> GetAll()
+        {
+            return _elements;
+        }
+
+        //public bool Contains(T elem)
+        //{
+        //    foreach(T curr in _elements)
+        //    {
+                
+        //    }
+        //}
+
         public void Clear()
         {
             _elements.Clear();

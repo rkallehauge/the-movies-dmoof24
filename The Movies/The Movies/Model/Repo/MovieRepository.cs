@@ -11,7 +11,5 @@ namespace The_Movies.Model
 {
     public class MovieRepository : Repository<Movie>
     {
-        
-     
     }
 }
