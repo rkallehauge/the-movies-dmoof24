@@ -20,7 +20,7 @@ namespace The_Movies.Model
             return $"Title:{Title} Genre:{Genre} {Duration} length in minutes";
         }
 
-
+        
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
@@ -30,6 +30,8 @@ namespace The_Movies.Model
             if (other.Title != Title) return false;
             if (other.Genre != Genre) return false;
             if (other.Duration != Duration) return false;
+            if (other.Director != Director) return false;
+            if (other.PremierDate != PremierDate) return false;
 
             return true;
         }

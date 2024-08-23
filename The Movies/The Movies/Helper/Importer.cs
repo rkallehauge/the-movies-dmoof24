@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Movies.Model;
 using The_Movies.Model.Repo;
+using Windows.ApplicationModel.Contacts;
 
 namespace The_Movies.Helper
 {
@@ -66,7 +67,6 @@ namespace The_Movies.Helper
                 string cinemaName = strings[0];
                 string cinemaCityName = strings[1];
 
-
                 Cinema cinema = new Cinema();
 
                 cinema.Name = cinemaName;
@@ -74,9 +74,7 @@ namespace The_Movies.Helper
 
                 List<Cinema>? cinemas = CinemaRepo.GetAll();
 
-              
-
-                if (cinemas is null || !cinemas.Contains(cinema))
+                if (cinemas is null || cinemas.Count == 0 || !cinemas.Contains(cinema))
                 {
                     CinemaRepo.Add(cinema);
                 }
@@ -100,28 +98,48 @@ namespace The_Movies.Helper
 
                 List<Movie>? movies = MovieRepo.GetAll();
 
-                if(movies is null || !movies.Contains(movie))
+                if(movies is null || movies.Count == 0 || !movies.Contains(movie))
                 {
                     MovieRepo.Add(movie);
                 }
 
+                Showing showing = new Showing();
+                showing.ShowingTime = DateTime.Parse(strings[2]);
 
 
+                // TODO : showing.Movie may potentially point to a different instance than the one stored in the repository
+                showing.Movie = movie;
+                showing.Screens.Add(cinema.Screens.FirstOrDefault());
 
+                showingRepo = ShowingRepository.GetInstance();
+                List<Showing> showings = showingRepo.GetAll();
 
+                Predicate<Showing> showingSameData = (Showing other) =>
+                {
+                    return showing.Equals(other);
+                };
 
+                Showing sameShowing = showings.Find(showingSameData);
 
+                if (sameShowing != null)
+                {
+                    int currentScreenAmount = sameShowing.Screens.Count;
 
-            }
+                    // Add screen with at index of count of current screns
+                    sameShowing.Screens.Add(cinema.Screens[currentScreenAmount]);
+                    //Debug.WriteLine(cinema.Screens.Count);
 
-            //foreach(var cinema in CinemaRepo.GetAll())
-            //{
-            //    Debug.WriteLine($"{cinema.Name}:name, {cinema.CityName}:cityName");
-            //}
+                    // TODO : I think this code is fucked? 
+                    
+                    Debug.WriteLine($"Sameshowing found! New screen count : {currentScreenAmount} for {sameShowing.Movie.Title} at {sameShowing.ShowingTime.ToString()}");
+                }
+                else
+                {
 
-            foreach(var movie in MovieRepo.GetAll())
-            {
-                Debug.WriteLine(movie.ToString());
+                    showing.Screens.Add(cinema.Screens.FirstOrDefault());
+                    showingRepo.Add(showing);
+                }
+
             }
 
             writer = new StreamWriter(exportFile);
