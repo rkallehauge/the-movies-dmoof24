@@ -74,7 +74,7 @@ namespace The_Movies.Helper
 
                 List<Cinema>? cinemas = CinemaRepo.GetAll();
 
-                if (cinemas is null || !cinemas.Contains(cinema))
+                if (cinemas is null || cinemas.Count == 0 || !cinemas.Contains(cinema))
                 {
                     CinemaRepo.Add(cinema);
                 }
@@ -98,7 +98,7 @@ namespace The_Movies.Helper
 
                 List<Movie>? movies = MovieRepo.GetAll();
 
-                if(movies is null || !movies.Contains(movie))
+                if(movies is null || movies.Count == 0 || !movies.Contains(movie))
                 {
                     MovieRepo.Add(movie);
                 }
@@ -116,55 +116,31 @@ namespace The_Movies.Helper
 
                 Predicate<Showing> showingSameData = (Showing other) =>
                 {
-                    
                     return showing.Equals(other);
                 };
 
                 Showing sameShowing = showings.Find(showingSameData);
 
-
                 if (sameShowing != null)
                 {
-                    //Debug.WriteLine("Sameshowing found!!!!");
                     int currentScreenAmount = sameShowing.Screens.Count;
 
                     // Add screen with at index of count of current screns
-                    sameShowing.Screens.Add(cinema.Screens[sameShowing.Screens.Count]);
+                    sameShowing.Screens.Add(cinema.Screens[currentScreenAmount]);
                     //Debug.WriteLine(cinema.Screens.Count);
-
 
                     // TODO : I think this code is fucked? 
                     
-                    Debug.WriteLine($"Sameshowing found! New screen count : {sameShowing.Screens.Count} for {sameShowing.Movie.Title} at {sameShowing.ShowingTime.ToString()}");
+                    Debug.WriteLine($"Sameshowing found! New screen count : {currentScreenAmount} for {sameShowing.Movie.Title} at {sameShowing.ShowingTime.ToString()}");
                 }
                 else
                 {
-                    //Debug.WriteLine("No match found");
+
                     showing.Screens.Add(cinema.Screens.FirstOrDefault());
                     showingRepo.Add(showing);
-                    //Debug.WriteLine(showingRepo.GetAll().Count);
                 }
-                
-
-                
-
-                //Debug.WriteLine($"{sameTimeShowings.Count} Counts");
-
-
-
-
 
             }
-
-            //foreach(var cinema in CinemaRepo.GetAll())
-            //{
-            //    Debug.WriteLine($"{cinema.Name}:name, {cinema.CityName}:cityName");
-            //}
-
-            //foreach(var movie in MovieRepo.GetAll())
-            //{
-            //    Debug.WriteLine(movie.ToString());
-            //}
 
             writer = new StreamWriter(exportFile);
         }
