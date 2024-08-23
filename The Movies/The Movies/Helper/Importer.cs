@@ -125,21 +125,24 @@ namespace The_Movies.Helper
 
                 if (sameShowing != null)
                 {
-                    Debug.WriteLine("Sameshowing found!!!!");
+                    //Debug.WriteLine("Sameshowing found!!!!");
                     int currentScreenAmount = sameShowing.Screens.Count;
 
                     // Add screen with at index of count of current screns
-                    //sameShowing.Screens.Add(cinema.Screens[cinema.Screens.Count]);
-                    Debug.WriteLine(cinema.Screens.Count);
-                    throw new Exception("die");
+                    sameShowing.Screens.Add(cinema.Screens[sameShowing.Screens.Count]);
+                    //Debug.WriteLine(cinema.Screens.Count);
 
+
+                    // TODO : I think this code is fucked? 
+                    
+                    Debug.WriteLine($"Sameshowing found! New screen count : {sameShowing.Screens.Count} for {sameShowing.Movie.Title} at {sameShowing.ShowingTime.ToString()}");
                 }
                 else
                 {
-                    Debug.WriteLine("No match found");
+                    //Debug.WriteLine("No match found");
                     showing.Screens.Add(cinema.Screens.FirstOrDefault());
                     showingRepo.Add(showing);
-                    Debug.WriteLine(showingRepo.GetAll().Count);
+                    //Debug.WriteLine(showingRepo.GetAll().Count);
                 }
                 
 

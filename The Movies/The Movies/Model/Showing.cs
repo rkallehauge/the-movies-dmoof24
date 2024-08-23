@@ -37,7 +37,7 @@ namespace The_Movies.Model
 
             if (!other.Screens.FirstOrDefault().Cinema.Equals(Screens.FirstOrDefault().Cinema)) return false;
 
-            Debug.WriteLine("gets here");
+            //Debug.WriteLine("gets here");
             
             return true;
         }
