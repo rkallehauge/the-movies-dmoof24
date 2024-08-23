@@ -10,6 +10,7 @@ using The_Movies.Helper;
 using The_Movies.Model.Repo;
 using The_Movies.Model;
 using System.Diagnostics;
+using The_Movies.View;
 
 namespace The_Movies
 {
@@ -23,6 +24,9 @@ namespace The_Movies
 
         public App()
         {
+
+            ShowingOverview showing = new ShowingOverview();
+
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.FileName = "Document"; // Default file name
             dialog.DefaultExt = ".csv"; // Default file extension
@@ -56,7 +60,7 @@ namespace The_Movies
 
 
 
-            
+            showing.Show();
         }
     }
 }
