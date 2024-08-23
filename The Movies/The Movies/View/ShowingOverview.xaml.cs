@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,14 @@ namespace The_Movies.View
             InitializeComponent();
             ShowingOverviewViewModel sovm = new ShowingOverviewViewModel();
             DataContext = sovm;
+            cbCinema.ItemsSource = sovm.Cinemas;
+
+            SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
+            {
+                sovm.SelectedCinema = (Model.Cinema) cbCinema.SelectedItem;
+            };
+
+            cbCinema.SelectionChanged += cinemaSelectionHandler;
         }
 
 	}

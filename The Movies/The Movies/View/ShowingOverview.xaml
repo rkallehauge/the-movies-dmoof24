@@ -9,20 +9,35 @@
 		Height="450"
 		Width="800">
 	<Grid>
-		<ComboBox x:Name="cbCinema"
+        <ComboBox x:Name="cbCinema"
 				  HorizontalAlignment="Left"
 				  Margin="108,18,0,0"
 				  VerticalAlignment="Top"
 				  Width="118"
-				  Height="26" />
-		<DatePicker x:Name="dpShowing"
+				  Height="26">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="   "/>
+                        <TextBlock Text="{Binding CityName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+            
+            
+        </ComboBox>
+
+
+
+        <DatePicker x:Name="dpShowing"
 					HorizontalAlignment="Left"
 					Margin="108,59,0,0"
 					VerticalAlignment="Top" />
 		<ListBox x:Name="lbScreen1"
 				 ItemsSource="{Binding MoviesVM}"
 				 Margin="64,134,619,118"
-				 SelectedItem="{Binding SelectedProduct}">
+				 >
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
