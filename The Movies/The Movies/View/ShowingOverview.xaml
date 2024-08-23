@@ -1,0 +1,213 @@
+﻿<Window x:Class="The_Movies.View.ShowingOverview"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:The_Movies.View"
+		mc:Ignorable="d"
+		Title="ShowingOverview"
+		Height="450"
+		Width="800">
+	<Grid>
+		<ComboBox x:Name="cbCinema"
+				  HorizontalAlignment="Left"
+				  Margin="108,18,0,0"
+				  VerticalAlignment="Top"
+				  Width="118"
+				  Height="26" />
+		<DatePicker x:Name="dpShowing"
+					HorizontalAlignment="Left"
+					Margin="108,59,0,0"
+					VerticalAlignment="Top" />
+		<ListBox x:Name="lbScreen1"
+				 ItemsSource="{Binding CreateShowingVM}"
+				 Margin="64,134,619,118"
+				 SelectedItem="{Binding SelectedProduct}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock>
+							<TextBlock.Text>
+								<MultiBinding StringFormat="{}{0}             Price: {1}">
+									<Binding Path="ShowingTime" />
+									<Binding Path="ReservedMovie" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ListBox x:Name="lbScreen2"
+				 ItemsSource="{Binding CreateShowingVM}"
+				 Margin="205,134,477,118"
+				 SelectedItem="{Binding SelectedProduct}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock>
+							<TextBlock.Text>
+								<MultiBinding StringFormat="{}{0}             Price: {1}">
+									<Binding Path="ShowingTime" />
+									<Binding Path="ReservedMovie" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ListBox x:Name="lbScreen3"
+				 ItemsSource="{Binding CreateShowingVM}"
+				 Margin="349,134,334,118"
+				 SelectedItem="{Binding SelectedProduct}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock>
+							<TextBlock.Text>
+								<MultiBinding StringFormat="{}{0}             Price: {1}">
+									<Binding Path="ShowingTime" />
+									<Binding Path="ReservedMovie" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ListBox x:Name="lbScreen4"
+				 ItemsSource="{Binding CreateShowingVM}"
+				 Margin="500,134,181,118"
+				 SelectedItem="{Binding SelectedProduct}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock>
+							<TextBlock.Text>
+								<MultiBinding StringFormat="{}{0}             Price: {1}">
+									<Binding Path="ShowingTime" />
+									<Binding Path="ReservedMovie" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ListBox x:Name="lbScreen5"
+				 ItemsSource="{Binding CreateShowingVM}"
+				 Margin="647,134,35,118"
+				 SelectedItem="{Binding SelectedProduct}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock>
+							<TextBlock.Text>
+								<MultiBinding StringFormat="{}{0}             Price: {1}">
+									<Binding Path="ShowingTime" />
+									<Binding Path="ReservedMovie" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<Label Content="Biograf"
+			   HorizontalAlignment="Left"
+			   Margin="19,18,0,0"
+			   VerticalAlignment="Top"
+			   Width="78"
+			   Background="#FFD01919" />
+		<Label Content="Sal 1"
+			   HorizontalAlignment="Left"
+			   Margin="93,103,0,0"
+			   VerticalAlignment="Top"
+			   Background="#FFCC1F1F" />
+		<Label Content="Sal 2"
+			   HorizontalAlignment="Left"
+			   Margin="246,103,0,0"
+			   VerticalAlignment="Top"
+			   Background="#FFCC1F1F" />
+		<Label Content="Sal 3"
+			   HorizontalAlignment="Left"
+			   Margin="390,103,0,0"
+			   VerticalAlignment="Top"
+			   Background="#FFCC1F1F" />
+		<Label Content="Sal 4"
+			   HorizontalAlignment="Left"
+			   Margin="542,103,0,0"
+			   VerticalAlignment="Top"
+			   Background="#FFCC1F1F" />
+		<Label Content="Sal 5"
+			   HorizontalAlignment="Left"
+			   Margin="688,103,0,0"
+			   VerticalAlignment="Top"
+			   Background="#FFCC1F1F" />
+		<ComboBox x:Name="cbCinema_Copy"
+				  HorizontalAlignment="Left"
+				  Margin="106,332,0,0"
+				  VerticalAlignment="Top"
+				  Width="152"
+				  Height="36" />
+		<ComboBox x:Name="cbMovie"
+				  HorizontalAlignment="Left"
+				  Margin="106,391,0,0"
+				  VerticalAlignment="Top"
+				  Width="152"
+				  Height="36" />
+		<Label Content="Biograf"
+			   HorizontalAlignment="Left"
+			   Margin="43,339,0,0"
+			   VerticalAlignment="Top"
+			   Height="26"
+			   Width="54" />
+		<Label Content="Film titel"
+			   HorizontalAlignment="Left"
+			   Margin="38,395,0,0"
+			   VerticalAlignment="Top"
+			   Height="26"
+			   Width="64" />
+		<ComboBox x:Name="cbTime"
+				  HorizontalAlignment="Left"
+				  Margin="390,333,0,0"
+				  VerticalAlignment="Top"
+				  Width="127"
+				  Height="32" />
+		<ComboBox x:Name="cbScreen"
+				  HorizontalAlignment="Left"
+				  Margin="390,397,0,0"
+				  VerticalAlignment="Top"
+				  Width="127"
+				  Height="32" />
+		<Label Content="Tidspunkt"
+			   HorizontalAlignment="Left"
+			   Margin="319,334,0,0"
+			   VerticalAlignment="Top"
+			   Height="23"
+			   Width="71" />
+		<Label Content="Sal nummer"
+			   HorizontalAlignment="Left"
+			   Margin="313,398,0,0"
+			   VerticalAlignment="Top"
+			   Height="23"
+			   Width="77" />
+		<Button x:Name="btnSaveChanges"
+				Content="Gem ændringer"
+				HorizontalAlignment="Left"
+				Margin="613,341,0,0"
+				VerticalAlignment="Top"
+				Height="34"
+				Width="93"
+				Background="#FF3DD83F" />
+		<Button x:Name="btnRemoveShowing"
+				Content="Slet forestilling"
+				HorizontalAlignment="Left"
+				Margin="613,387,0,0"
+				VerticalAlignment="Top"
+				Height="34"
+				Width="93"
+				Background="#FFF92727" />
+	</Grid>
+</Window>
