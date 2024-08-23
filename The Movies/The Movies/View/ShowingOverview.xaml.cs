@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.ViewModel;
 
 namespace The_Movies.View
 {
@@ -22,6 +23,8 @@ namespace The_Movies.View
         public ShowingOverview()
         {
             InitializeComponent();
+            ShowingOverviewViewModel sovm = new ShowingOverviewViewModel();
+            DataContext = sovm;
         }
 
 	}

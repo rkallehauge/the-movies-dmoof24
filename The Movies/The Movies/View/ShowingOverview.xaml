@@ -20,7 +20,7 @@
 					Margin="108,59,0,0"
 					VerticalAlignment="Top" />
 		<ListBox x:Name="lbScreen1"
-				 ItemsSource="{Binding CreateShowingVM}"
+				 ItemsSource="{Binding MoviesVM}"
 				 Margin="64,134,619,118"
 				 SelectedItem="{Binding SelectedProduct}">
 			<ListBox.ItemTemplate>
@@ -29,8 +29,8 @@
 						<TextBlock>
 							<TextBlock.Text>
 								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="ShowingTime" />
-									<Binding Path="ReservedMovie" />
+									<Binding Path="Title" />
+									<Binding Path="Duration" />
 								</MultiBinding>
 							</TextBlock.Text>
 						</TextBlock>
@@ -39,7 +39,7 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<ListBox x:Name="lbScreen2"
-				 ItemsSource="{Binding CreateShowingVM}"
+				 ItemsSource="{Binding MoviesVM}"
 				 Margin="205,134,477,118"
 				 SelectedItem="{Binding SelectedProduct}">
 			<ListBox.ItemTemplate>
@@ -48,8 +48,8 @@
 						<TextBlock>
 							<TextBlock.Text>
 								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="ShowingTime" />
-									<Binding Path="ReservedMovie" />
+									<Binding Path="Title" />
+									<Binding Path="Duration" />
 								</MultiBinding>
 							</TextBlock.Text>
 						</TextBlock>
@@ -58,7 +58,7 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<ListBox x:Name="lbScreen3"
-				 ItemsSource="{Binding CreateShowingVM}"
+				 ItemsSource="{Binding MoviesVM}"
 				 Margin="349,134,334,118"
 				 SelectedItem="{Binding SelectedProduct}">
 			<ListBox.ItemTemplate>
@@ -67,8 +67,8 @@
 						<TextBlock>
 							<TextBlock.Text>
 								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="ShowingTime" />
-									<Binding Path="ReservedMovie" />
+									<Binding Path="Title" />
+									<Binding Path="Duration" />
 								</MultiBinding>
 							</TextBlock.Text>
 						</TextBlock>
@@ -77,7 +77,7 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<ListBox x:Name="lbScreen4"
-				 ItemsSource="{Binding CreateShowingVM}"
+				 ItemsSource="{Binding MoviesVM}"
 				 Margin="500,134,181,118"
 				 SelectedItem="{Binding SelectedProduct}">
 			<ListBox.ItemTemplate>
@@ -86,8 +86,8 @@
 						<TextBlock>
 							<TextBlock.Text>
 								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="ShowingTime" />
-									<Binding Path="ReservedMovie" />
+									<Binding Path="Title" />
+									<Binding Path="Duration" />
 								</MultiBinding>
 							</TextBlock.Text>
 						</TextBlock>
@@ -96,7 +96,7 @@
 			</ListBox.ItemTemplate>
 		</ListBox>
 		<ListBox x:Name="lbScreen5"
-				 ItemsSource="{Binding CreateShowingVM}"
+				 ItemsSource="{Binding MoviesVM}"
 				 Margin="647,134,35,118"
 				 SelectedItem="{Binding SelectedProduct}">
 			<ListBox.ItemTemplate>
@@ -105,8 +105,8 @@
 						<TextBlock>
 							<TextBlock.Text>
 								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="ShowingTime" />
-									<Binding Path="ReservedMovie" />
+									<Binding Path="Title" />
+									<Binding Path="Duration" />
 								</MultiBinding>
 							</TextBlock.Text>
 						</TextBlock>
