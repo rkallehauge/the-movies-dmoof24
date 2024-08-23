@@ -25,22 +25,22 @@ namespace The_Movies
         public App()
         {
 
-            //ShowingOverview showing = new ShowingOverview();
+            ShowingOverview showing = new ShowingOverview();
 
-            //var dialog = new Microsoft.Win32.OpenFileDialog();
-            //dialog.FileName = "Document"; // Default file name
-            //dialog.DefaultExt = ".csv"; // Default file extension
-            //dialog.Filter = "Text documents (.csv)|*.csv"; // Filter files by extension
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.FileName = "Document"; // Default file name
+            dialog.DefaultExt = ".csv"; // Default file extension
+            dialog.Filter = "Text documents (.csv)|*.csv"; // Filter files by extension
 
-            //// Show open file dialog box
-            //bool? result = dialog.ShowDialog();
+            // Show open file dialog box
+            bool? result = dialog.ShowDialog();
 
-            //// Process open file dialog box results
-            //if (result == true)
-            //{
-            //    // Open document
-            //    string filename = dialog.FileName;
-            //}
+            // Process open file dialog box results
+            if (result == true)
+            {
+                // Open document
+                string filename = dialog.FileName;
+            }
 
 
             Importer importer = new Importer();
@@ -56,22 +56,22 @@ namespace The_Movies
 
             //Repository<Showing> showingRepo = ShowingRepository.GetInstance();
 
-            //importer.Import(dialog.FileName, exportFile);
-            Movie movie = new();
-            movie.Title = "MovieTitle1";
-            movie.Director = "Jens Bobby";
-            movie.PremierDate = DateOnly.MinValue;
-            movie.Duration = 90;
-            movie.Genre = "Snuff";
-            movieRepo.Add(movie);
-            
-            Cinema cinema = new Cinema();
-            cinema.CityName = "Oslo";
-            cinema.Name = "GoonMaxx";
-            cinemaRepo.Add(cinema);
+            importer.Import(dialog.FileName, exportFile);
+            //Movie movie = new();
+            //movie.Title = "MovieTitle1";
+            //movie.Director = "Jens Bobby";
+            //movie.PremierDate = DateOnly.MinValue;
+            //movie.Duration = 90;
+            //movie.Genre = "Snuff";
+            //movieRepo.Add(movie);
+
+            //Cinema cinema = new Cinema();
+            //cinema.CityName = "Oslo";
+            //cinema.Name = "GoonMaxx";
+            //cinemaRepo.Add(cinema);
 
 
-            //showing.Show();
+            showing.Show();
         }
     }
 }
