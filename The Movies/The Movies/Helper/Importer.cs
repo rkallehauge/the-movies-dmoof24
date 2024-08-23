@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Movies.Model;
 using The_Movies.Model.Repo;
+using Windows.ApplicationModel.Contacts;
 
 namespace The_Movies.Helper
 {
@@ -66,15 +67,12 @@ namespace The_Movies.Helper
                 string cinemaName = strings[0];
                 string cinemaCityName = strings[1];
 
-
                 Cinema cinema = new Cinema();
 
                 cinema.Name = cinemaName;
                 cinema.CityName = cinemaCityName;
 
                 List<Cinema>? cinemas = CinemaRepo.GetAll();
-
-              
 
                 if (cinemas is null || !cinemas.Contains(cinema))
                 {
@@ -105,8 +103,49 @@ namespace The_Movies.Helper
                     MovieRepo.Add(movie);
                 }
 
+                Showing showing = new Showing();
+                showing.ShowingTime = DateTime.Parse(strings[2]);
 
 
+                // TODO : showing.Movie may potentially point to a different instance than the one stored in the repository
+                showing.Movie = movie;
+                showing.Screens.Add(cinema.Screens.FirstOrDefault());
+
+                showingRepo = ShowingRepository.GetInstance();
+                List<Showing> showings = showingRepo.GetAll();
+
+                Predicate<Showing> showingSameData = (Showing other) =>
+                {
+                    
+                    return showing.Equals(other);
+                };
+
+                Showing sameShowing = showings.Find(showingSameData);
+
+
+                if (sameShowing != null)
+                {
+                    Debug.WriteLine("Sameshowing found!!!!");
+                    int currentScreenAmount = sameShowing.Screens.Count;
+
+                    // Add screen with at index of count of current screns
+                    //sameShowing.Screens.Add(cinema.Screens[cinema.Screens.Count]);
+                    Debug.WriteLine(cinema.Screens.Count);
+                    throw new Exception("die");
+
+                }
+                else
+                {
+                    Debug.WriteLine("No match found");
+                    showing.Screens.Add(cinema.Screens.FirstOrDefault());
+                    showingRepo.Add(showing);
+                    Debug.WriteLine(showingRepo.GetAll().Count);
+                }
+                
+
+                
+
+                //Debug.WriteLine($"{sameTimeShowings.Count} Counts");
 
 
 
@@ -119,10 +158,10 @@ namespace The_Movies.Helper
             //    Debug.WriteLine($"{cinema.Name}:name, {cinema.CityName}:cityName");
             //}
 
-            foreach(var movie in MovieRepo.GetAll())
-            {
-                Debug.WriteLine(movie.ToString());
-            }
+            //foreach(var movie in MovieRepo.GetAll())
+            //{
+            //    Debug.WriteLine(movie.ToString());
+            //}
 
             writer = new StreamWriter(exportFile);
         }

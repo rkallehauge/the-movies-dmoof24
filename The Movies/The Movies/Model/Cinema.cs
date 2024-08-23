@@ -8,7 +8,7 @@ namespace The_Movies.Model
 {
     public class Cinema
     {
-        int screenAmount = 5;
+        readonly int screenAmount = 5;
 
         List<Screen> screens;
         public List<Screen> Screens { get { return screens; } }
@@ -35,7 +35,7 @@ namespace The_Movies.Model
             screens = new List<Screen>();
             for (int i = 1; i <= screenAmount; i++)
             {
-                screens.Add(new Screen(i));
+                screens.Add(new Screen(i, this));
             }
         }
 
