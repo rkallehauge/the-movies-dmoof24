@@ -14,18 +14,28 @@ namespace The_Movies.ViewModel
     {
         private Repository<Movie> movieRepo = MovieRepository.GetInstance();
         private Repository<Cinema> cinemaRepo = CinemaRepository.GetInstance();
+        private Repository<Showing> showingRepo = ShowingRepository.GetInstance();
+
+
+        private List<List<Showing>> showingGigaList;
+        public List<List<Showing>> ShowingGigaList
+        {
+            get { return showingGigaList; }
+            set { showingGigaList = value; }
+        }
+
+
 
         List<Cinema> cinemas;
         public List<Cinema> Cinemas { get {  return cinemas; } }
 
-        public ObservableCollection<MovieViewModel> MoviesVM { get; set; } = new ObservableCollection<MovieViewModel>();
 
+        public ObservableCollection<MovieViewModel> MoviesVM { get; set; } = new ObservableCollection<MovieViewModel>();
         public MovieViewModel SelectedMovie { get; set; }
 
 
 
         private Cinema selectedCinema;
-
         public Cinema SelectedCinema
         {
             get { return selectedCinema; }
@@ -45,6 +55,9 @@ namespace The_Movies.ViewModel
             {
                 MoviesVM.Add(new MovieViewModel(movie));
             }
+
+            //showingGigaList = new();
+
 
         }
     }
