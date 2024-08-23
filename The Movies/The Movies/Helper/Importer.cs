@@ -100,8 +100,6 @@ namespace The_Movies.Helper
 
                 List<Movie>? movies = MovieRepo.GetAll();
 
-    
-
                 if(movies is null || !movies.Contains(movie))
                 {
                     MovieRepo.Add(movie);
