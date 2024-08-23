@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace The_Movies.Model.Repo
 {
-    internal class ScreenRepository
+    public class ShowingRepository : Repository<Showing>
     {
     }
 }

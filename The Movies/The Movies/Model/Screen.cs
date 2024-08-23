@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace The_Movies.Model
 {
-    internal class Screen
+    public class Screen
     {
+
+        public int ScreenNumber { get; set; }
+
+        public Screen() { }
+
+        public Screen(int screenNumber) { 
+            ScreenNumber = screenNumber;
+        }
     }
 }
