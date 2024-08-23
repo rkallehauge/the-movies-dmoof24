@@ -17,13 +17,31 @@ namespace The_Movies.ViewModel
         private Repository<Showing> showingRepo = ShowingRepository.GetInstance();
 
 
-        private List<List<Showing>> showingGigaList;
-        public List<List<Showing>> ShowingGigaList
+        private DateOnly selectedDate;
+        public DateOnly SelectedDate
         {
-            get { return showingGigaList; }
-            set { showingGigaList = value; }
+            get { return selectedDate; }
+            set { 
+
+                selectedDate = value;
+                DateChanged();
+            }
         }
 
+
+        private List<List<Showing>> showingHallList;
+        public List<List<Showing>> ShowingHallList
+        {
+            get { return showingHallList; }
+            set { showingHallList = value; }
+        }
+
+        private List<Showing> showingsForDate;
+        public List<Showing> ShowingsForDate
+        {
+            get { return showingsForDate; }
+            set { showingsForDate = value; }
+        }
 
 
         List<Cinema> cinemas;
@@ -46,6 +64,27 @@ namespace The_Movies.ViewModel
         }
 
 
+        public void DateChanged()
+        {
+
+            
+            showingsForDate = ShowingRepository.GetByDate(selectedDate);
+
+            Debug.WriteLine(showingsForDate.Count);
+            if(showingsForDate is null || showingsForDate.Count == 0)
+            {
+                // TODO : Depopulate list?
+                return;
+            }
+
+
+            // populate gigalist
+            for(int i = 1; i <= 5; i++)
+            {
+
+            }
+
+        }
         public ShowingOverviewViewModel()
         {
             cinemas = cinemaRepo.GetAll();
@@ -57,8 +96,6 @@ namespace The_Movies.ViewModel
             }
 
             //showingGigaList = new();
-
-
         }
     }
 }

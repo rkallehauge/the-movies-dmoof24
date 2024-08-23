@@ -33,7 +33,9 @@
         <DatePicker x:Name="dpShowing"
 					HorizontalAlignment="Left"
 					Margin="108,59,0,0"
-					VerticalAlignment="Top" />
+					VerticalAlignment="Top" 
+                    
+                    />
 		<ListBox x:Name="lbScreen1"
 				 ItemsSource="{Binding MoviesVM}"
 				 Margin="64,134,619,118"
