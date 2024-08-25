@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.ViewModel;
 
 namespace The_Movies.View
 {
@@ -22,6 +23,30 @@ namespace The_Movies.View
         public CreateShowing()
         {
             InitializeComponent();
+            CreateShowingViewModel csvm = new CreateShowingViewModel();
+            DataContext = csvm;
+            
+            
+            cbCinema.ItemsSource = csvm.Cinemas; //ItemsSource for biograf combobox er Cinesmas listen i VM...
+
+            SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
+            {
+                csvm.SelectedCinema = (Model.Cinema)cbCinema.SelectedItem;
+            };
+            
+            cbCinema.SelectionChanged += cinemaSelectionHandler;
+
+
+
+
+            cbMovie.ItemsSource = csvm.Movies; //ItemsSource for biograf combobox er Cinesmas listen i VM...
+
+            SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
+            {
+                csvm.SelectedMovie = (Model.Movie)cbMovie.SelectedItem;
+            };
+
+            cbMovie.SelectionChanged += movieSelectionHandler;
         }
 
 
