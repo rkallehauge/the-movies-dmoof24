@@ -6,7 +6,7 @@
 		xmlns:local="clr-namespace:The_Movies.View"
 		mc:Ignorable="d"
 		Title="ShowingOverview"
-		Height="450"
+		Height="500"
 		Width="800">
 	<Grid>
         <ComboBox x:Name="cbCinema"
@@ -34,132 +34,188 @@
 					HorizontalAlignment="Left"
 					Margin="108,59,0,0"
 					VerticalAlignment="Top" />
-		<ListBox x:Name="lbScreen1"
-				 ItemsSource="{Binding MoviesVM}"
-				 Margin="64,134,619,118"
-				 >
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock>
-							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="Title" />
-									<Binding Path="Duration" />
-								</MultiBinding>
-							</TextBlock.Text>
-						</TextBlock>
-					</StackPanel>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<ListBox x:Name="lbScreen2"
-				 ItemsSource="{Binding MoviesVM}"
-				 Margin="205,134,477,118"
-				 SelectedItem="{Binding SelectedProduct}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock>
-							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="Title" />
-									<Binding Path="Duration" />
-								</MultiBinding>
-							</TextBlock.Text>
-						</TextBlock>
-					</StackPanel>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<ListBox x:Name="lbScreen3"
-				 ItemsSource="{Binding MoviesVM}"
-				 Margin="349,134,334,118"
-				 SelectedItem="{Binding SelectedProduct}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock>
-							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="Title" />
-									<Binding Path="Duration" />
-								</MultiBinding>
-							</TextBlock.Text>
-						</TextBlock>
-					</StackPanel>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<ListBox x:Name="lbScreen4"
-				 ItemsSource="{Binding MoviesVM}"
-				 Margin="500,134,181,118"
-				 SelectedItem="{Binding SelectedProduct}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock>
-							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="Title" />
-									<Binding Path="Duration" />
-								</MultiBinding>
-							</TextBlock.Text>
-						</TextBlock>
-					</StackPanel>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<ListBox x:Name="lbScreen5"
-				 ItemsSource="{Binding MoviesVM}"
-				 Margin="647,134,35,118"
-				 SelectedItem="{Binding SelectedProduct}">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<StackPanel Orientation="Horizontal">
-						<TextBlock>
-							<TextBlock.Text>
-								<MultiBinding StringFormat="{}{0}             Price: {1}">
-									<Binding Path="Title" />
-									<Binding Path="Duration" />
-								</MultiBinding>
-							</TextBlock.Text>
-						</TextBlock>
-					</StackPanel>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
+		<ListView Margin="50,106,50,178"
+				  Height="200"
+				  Width="700"
+				  ScrollViewer.VerticalScrollBarVisibility="Auto"
+				  ScrollViewer.HorizontalScrollBarVisibility="Auto">
+			<ListView.View>
+				<GridView>
+					<!-- Definer rækker -->
+					<GridViewColumn Header="Screening Times"
+									Width="50">
+						<GridViewColumn.CellTemplate>
+							<DataTemplate>
+								<TextBlock Text="{Binding}" />
+							</DataTemplate>
+						</GridViewColumn.CellTemplate>
+					</GridViewColumn>
+					
+					<GridViewColumn Header="Sal 1"
+									Width="130" />
+					<GridViewColumn Header="Sal 2"
+									Width="130" />
+					<GridViewColumn Header="Sal 3"
+									Width="130" />
+					<GridViewColumn Header="Sal 4"
+									Width="130" />
+					<GridViewColumn Header="Sal 5"
+									Width="130" />
+				</GridView>
+			</ListView.View>
+
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="50" />
+					<ColumnDefinition Width="130" />
+					<ColumnDefinition Width="130" />
+					<ColumnDefinition Width="130" />
+					<ColumnDefinition Width="130" />
+					<ColumnDefinition Width="130" />
+				</Grid.ColumnDefinitions>
+
+				<ListBox Grid.Column="0">
+					<ListBox.ItemsSource>
+						<x:Array Type="{x:Type sys:String}"
+								 xmlns:sys="clr-namespace:System;assembly=mscorlib">
+							<sys:String>10:00</sys:String>
+							<sys:String>11:00</sys:String>
+							<sys:String>12:00</sys:String>
+							<sys:String>13:00</sys:String>
+							<sys:String>14:00</sys:String>
+							<sys:String>15:00</sys:String>
+							<sys:String>16:00</sys:String>
+							<sys:String>17:00</sys:String>
+							<sys:String>18:00</sys:String>
+							<sys:String>19:00</sys:String>
+							<sys:String>20:00</sys:String>
+							<sys:String>21:00</sys:String>
+							<sys:String>22:00</sys:String>
+						</x:Array>
+					</ListBox.ItemsSource>
+				</ListBox>
+				<ListBox Grid.Column="1"
+						 Width="130"
+						 x:Name="lbScreen1"
+						 ItemsSource="{Binding MoviesVM}"
+						 Margin="64,134,619,118">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}{0}             Price: {1}">
+											<Binding Path="Title" />
+											<Binding Path="Duration" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+
+				<ListBox Grid.Column="2"
+						 Width="130"
+						 x:Name="lbScreen2"
+						 ItemsSource="{Binding MoviesVM}"
+						 Margin="205,134,477,118"
+						 SelectedItem="{Binding SelectedProduct}">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}{0}             Price: {1}">
+											<Binding Path="Title" />
+											<Binding Path="Duration" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+
+				<ListBox Grid.Column="3"
+						 Width="130"
+						 x:Name="lbScreen3"
+						 ItemsSource="{Binding MoviesVM}"
+						 Margin="349,134,334,118"
+						 SelectedItem="{Binding SelectedProduct}">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}{0}             Price: {1}">
+											<Binding Path="Title" />
+											<Binding Path="Duration" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+
+				<ListBox Grid.Column="4"
+						 Width="130"
+						 x:Name="lbScreen4"
+						 ItemsSource="{Binding MoviesVM}"
+						 Margin="500,134,181,118"
+						 SelectedItem="{Binding SelectedProduct}">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}{0}             Price: {1}">
+											<Binding Path="Title" />
+											<Binding Path="Duration" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+
+				<ListBox Grid.Column="5"
+						 Width="130"
+						 x:Name="lbScreen5"
+						 ItemsSource="{Binding MoviesVM}"
+						 Margin="647,134,35,118"
+						 SelectedItem="{Binding SelectedProduct}">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock>
+									<TextBlock.Text>
+										<MultiBinding StringFormat="{}{0}             Price: {1}">
+											<Binding Path="Title" />
+											<Binding Path="Duration" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</Grid>
+		</ListView>
+		
+		
+		
+		
+		
 		<Label Content="Biograf"
 			   HorizontalAlignment="Left"
 			   Margin="19,18,0,0"
 			   VerticalAlignment="Top"
 			   Width="78"
 			   Background="#FFD01919" />
-		<Label Content="Sal 1"
-			   HorizontalAlignment="Left"
-			   Margin="93,103,0,0"
-			   VerticalAlignment="Top"
-			   Background="#FFCC1F1F" />
-		<Label Content="Sal 2"
-			   HorizontalAlignment="Left"
-			   Margin="246,103,0,0"
-			   VerticalAlignment="Top"
-			   Background="#FFCC1F1F" />
-		<Label Content="Sal 3"
-			   HorizontalAlignment="Left"
-			   Margin="390,103,0,0"
-			   VerticalAlignment="Top"
-			   Background="#FFCC1F1F" />
-		<Label Content="Sal 4"
-			   HorizontalAlignment="Left"
-			   Margin="542,103,0,0"
-			   VerticalAlignment="Top"
-			   Background="#FFCC1F1F" />
-		<Label Content="Sal 5"
-			   HorizontalAlignment="Left"
-			   Margin="688,103,0,0"
-			   VerticalAlignment="Top"
-			   Background="#FFCC1F1F" />
+
 		<ComboBox x:Name="cbCinema_Copy"
 				  HorizontalAlignment="Left"
 				  Margin="106,332,0,0"
