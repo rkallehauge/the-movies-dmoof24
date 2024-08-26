@@ -25,7 +25,8 @@ namespace The_Movies
         public App()
         {
 
-            ShowingOverview showing = new ShowingOverview();
+            //ShowingOverview showing = new ShowingOverview();
+            CreateShowing createShowing = new CreateShowing(); 
 
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.FileName = "Document"; // Default file name
@@ -71,7 +72,9 @@ namespace The_Movies
             //cinemaRepo.Add(cinema);
 
 
-            showing.Show();
+            //showing.Show();
+            createShowing.Show();
+
         }
     }
 }
