@@ -16,19 +16,12 @@ namespace The_Movies.ViewModel
         private Repository<Cinema> cinemaRepo = CinemaRepository.GetInstance();
         
         
-        public ObservableCollection<MovieViewModel> MoviesVM { get; set; } = new ObservableCollection<MovieViewModel>();
-        
-
         public CreateShowingViewModel()
         {
             cinemas = cinemaRepo.GetAll(); 
 
-            List<Movie> movies = movieRepo.GetAll(); // Jeg forstår ikke helt hvorfor? 
-            foreach (Movie movie in movies)
-            {
-                MoviesVM.Add(new MovieViewModel(movie));
-            }
-
+            movies = movieRepo.GetAll(); // Jeg forstår ikke helt hvorfor? 
+            
         }
 
 
