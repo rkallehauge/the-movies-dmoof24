@@ -43,7 +43,7 @@ namespace The_Movies.View
 
             SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
             {
-                csvm.SelectedMovie = (Model.Movie)cbMovie.SelectedItem;
+                csvm.SelectedMovie = (Model.Movie) cbMovie.SelectedItem;
             };
 
             cbMovie.SelectionChanged += movieSelectionHandler;
