@@ -41,7 +41,7 @@
 				  ScrollViewer.HorizontalScrollBarVisibility="Auto">
 			<ListView.View>
 				<GridView>
-					<!-- Definer rækker -->
+					<!-- Definer kolonner -->
 					<GridViewColumn Header="Screening Times"
 									Width="50">
 						<GridViewColumn.CellTemplate>
@@ -50,7 +50,7 @@
 							</DataTemplate>
 						</GridViewColumn.CellTemplate>
 					</GridViewColumn>
-					
+
 					<GridViewColumn Header="Sal 1"
 									Width="130" />
 					<GridViewColumn Header="Sal 2"
@@ -63,17 +63,6 @@
 									Width="130" />
 				</GridView>
 			</ListView.View>
-
-			<Grid>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="50" />
-					<ColumnDefinition Width="130" />
-					<ColumnDefinition Width="130" />
-					<ColumnDefinition Width="130" />
-					<ColumnDefinition Width="130" />
-					<ColumnDefinition Width="130" />
-				</Grid.ColumnDefinitions>
-
 				<ListBox Grid.Column="0">
 					<ListBox.ItemsSource>
 						<x:Array Type="{x:Type sys:String}"
@@ -97,8 +86,7 @@
 				<ListBox Grid.Column="1"
 						 Width="130"
 						 x:Name="lbScreen1"
-						 ItemsSource="{Binding MoviesVM}"
-						 Margin="64,134,619,118">
+						 ItemsSource="{Binding MoviesVM}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<StackPanel Orientation="Horizontal">
@@ -119,7 +107,6 @@
 						 Width="130"
 						 x:Name="lbScreen2"
 						 ItemsSource="{Binding MoviesVM}"
-						 Margin="205,134,477,118"
 						 SelectedItem="{Binding SelectedProduct}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
@@ -141,7 +128,6 @@
 						 Width="130"
 						 x:Name="lbScreen3"
 						 ItemsSource="{Binding MoviesVM}"
-						 Margin="349,134,334,118"
 						 SelectedItem="{Binding SelectedProduct}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
@@ -163,7 +149,6 @@
 						 Width="130"
 						 x:Name="lbScreen4"
 						 ItemsSource="{Binding MoviesVM}"
-						 Margin="500,134,181,118"
 						 SelectedItem="{Binding SelectedProduct}">
 					<ListBox.ItemTemplate>
 						<DataTemplate>
@@ -181,28 +166,26 @@
 					</ListBox.ItemTemplate>
 				</ListBox>
 
-				<ListBox Grid.Column="5"
-						 Width="130"
-						 x:Name="lbScreen5"
-						 ItemsSource="{Binding MoviesVM}"
-						 Margin="647,134,35,118"
-						 SelectedItem="{Binding SelectedProduct}">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<TextBlock>
-									<TextBlock.Text>
-										<MultiBinding StringFormat="{}{0}             Price: {1}">
-											<Binding Path="Title" />
-											<Binding Path="Duration" />
-										</MultiBinding>
-									</TextBlock.Text>
-								</TextBlock>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
-			</Grid>
+			<ListBox Grid.Column="5"
+					 Width="130"
+					 x:Name="lbScreen5"
+					 ItemsSource="{Binding MoviesVM}"
+					 SelectedItem="{Binding SelectedProduct}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<TextBlock>
+								<TextBlock.Text>
+									<MultiBinding StringFormat="{}{0}             Price: {1}">
+										<Binding Path="Title" />
+										<Binding Path="Duration" />
+									</MultiBinding>
+								</TextBlock.Text>
+							</TextBlock>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
 		</ListView>
 		
 		
