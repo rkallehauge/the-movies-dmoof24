@@ -20,8 +20,8 @@ namespace The_Movies.ViewModel
         {
             cinemas = cinemaRepo.GetAll(); 
 
-            movies = movieRepo.GetAll(); // Jeg forstår ikke helt hvorfor? 
-            
+            movies = movieRepo.GetAll(); 
+
         }
 
 
@@ -58,6 +58,14 @@ namespace The_Movies.ViewModel
                 Debug.WriteLine($"Success! {value.Title}");
             }
         }
+
+        //TIME
+
+
+        //DATE
+
+
+        //SCREEN
 
 
     }
