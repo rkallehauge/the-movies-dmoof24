@@ -10,7 +10,7 @@
 		Width="800">
 	<Grid>
 		<Button x:Name="btnAddMovie"
-				Content="Add movie"
+				Content="Opret forestilling"
 				HorizontalAlignment="Left"
 				Margin="545,309,0,0"
 				VerticalAlignment="Top"

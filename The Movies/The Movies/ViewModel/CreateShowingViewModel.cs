@@ -51,8 +51,8 @@ namespace The_Movies.ViewModel
 
 
         //MOVIE
-        List<Cinema> movies;
-        public List<Cinema> Movies { get { return cinemas; } }
+        List<Movie> movies;
+        public List<Movie> Movies { get { return movies; } }
 
         private Movie selectedMovie;
 
