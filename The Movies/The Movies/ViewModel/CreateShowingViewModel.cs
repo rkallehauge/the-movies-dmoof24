@@ -17,7 +17,20 @@ namespace The_Movies.ViewModel
         
         
         public ObservableCollection<MovieViewModel> MoviesVM { get; set; } = new ObservableCollection<MovieViewModel>();
-        public MovieViewModel SelectedMovie { get; set; }
+        
+
+        public CreateShowingViewModel()
+        {
+            cinemas = cinemaRepo.GetAll(); 
+
+            List<Movie> movies = movieRepo.GetAll(); // Jeg forstår ikke helt hvorfor? 
+            foreach (Movie movie in movies)
+            {
+                MoviesVM.Add(new MovieViewModel(movie));
+            }
+
+        }
+
 
 
         //CINEMA
@@ -36,34 +49,22 @@ namespace The_Movies.ViewModel
             }
         }
 
-        public CreateShowingViewModel()
-        {
-            cinemas = cinemaRepo.GetAll(); //Skal den ikke puttes ind i en VMliste? 
-
-            List<Movie> movies = movieRepo.GetAll();
-            foreach (Movie movie in movies)
-            {
-                MoviesVM.Add(new MovieViewModel(movie));
-            }
-
-        }
-
 
         //MOVIE
-        //List<Cinema> movies;
-        //public List<Cinema> Movies { get { return cinemas; } }
+        List<Cinema> movies;
+        public List<Cinema> Movies { get { return cinemas; } }
 
-        //private Movie selectedMovie;
+        private Movie selectedMovie;
 
-        //public Movie SelectedMovie
-        //{
-        //    get { return selectedMovie; }
-        //    set
-        //    {
-        //        selectedMovie = value;
-        //        Debug.WriteLine($"Success! {value.Name}");
-        //    }
-        //}
+        public Movie SelectedMovie
+        {
+            get { return selectedMovie; }
+            set
+            {
+                selectedMovie = value;
+                Debug.WriteLine($"Success! {value.Title}");
+            }
+        }
 
 
     }

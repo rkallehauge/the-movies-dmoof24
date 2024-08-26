@@ -21,19 +21,37 @@
 					HorizontalAlignment="Left"
 					Margin="156,196,0,0"
 					VerticalAlignment="Top" />
-		<ComboBox x:Name="cbCinema"
+        <ComboBox x:Name="cbCinema"
 				  HorizontalAlignment="Left"
 				  Margin="147,71,0,0"
 				  VerticalAlignment="Top"
 				  Width="136"
-				  Height="36" />
-		<ComboBox x:Name="cbMovie"
+				  Height="36" SelectionChanged="cbCinema_SelectionChanged" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="   "/>
+                        <TextBlock Text="{Binding CityName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="cbMovie"
 				  HorizontalAlignment="Left"
 				  Margin="147,129,0,0"
 				  VerticalAlignment="Top"
 				  Width="136"
-				  Height="36" />
-		<ComboBox x:Name="cbTime"
+				  Height="36" SelectionChanged="cbMovie_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="cbTime"
 				  HorizontalAlignment="Left"
 				  Margin="147,272,0,0"
 				  VerticalAlignment="Top"

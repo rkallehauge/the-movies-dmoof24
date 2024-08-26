@@ -39,9 +39,9 @@ namespace The_Movies.View
 
 
 
-            cbMovie.ItemsSource = csvm.Movies; //ItemsSource for biograf combobox er Cinesmas listen i VM...
+            cbMovie.ItemsSource = csvm.Movies; //ItemsSource for film combobox er Movies listen i VM...
 
-            SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
+            SelectionChangedEventHandler movieSelectionHandler = (sender, e) =>
             {
                 csvm.SelectedMovie = (Model.Movie) cbMovie.SelectedItem;
             };
