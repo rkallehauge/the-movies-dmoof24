@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_Movies.Model;
 using The_Movies.ViewModel;
 
 namespace The_Movies.View
@@ -30,11 +31,22 @@ namespace The_Movies.View
 
             SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
             {
-                sovm.SelectedCinema = (Model.Cinema) cbCinema.SelectedItem;
+                sovm.SelectedCinema = (Model.Cinema)cbCinema.SelectedItem;
             };
 
             cbCinema.SelectionChanged += cinemaSelectionHandler;
+
+
+            EventHandler<SelectionChangedEventArgs> dateSelectionHandler = (sender, e) =>
+            {
+                sovm.SelectedDate =  DateOnly.FromDateTime((DateTime)dpShowing.SelectedDate);
+            };
+
+            dpShowing.SelectedDateChanged += dateSelectionHandler;
+                        
         }
 
-	}
+       
+
+    }
 }
