@@ -14,11 +14,8 @@ namespace The_Movies.Model.Repo
         {
             Predicate<Showing> matchDate = (showing) =>
             {
-                Debug.WriteLine("match found");
-                if (showing.ShowingTime.Equals(givenDate)){
-                    return true;
-                } 
-                return false;
+                DateOnly curDate = DateOnly.FromDateTime(showing.ShowingTime);
+                return curDate.Equals(givenDate);
             };
 
             return ShowingRepository.GetInstance().GetAll().FindAll(matchDate);
