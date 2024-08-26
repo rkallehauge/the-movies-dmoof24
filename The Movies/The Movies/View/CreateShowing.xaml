@@ -26,7 +26,7 @@
 				  Margin="147,71,0,0"
 				  VerticalAlignment="Top"
 				  Width="136"
-				  Height="36" SelectionChanged="cbCinema_SelectionChanged" >
+				  Height="36">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -42,7 +42,7 @@
 				  Margin="147,129,0,0"
 				  VerticalAlignment="Top"
 				  Width="136"
-				  Height="36" SelectionChanged="cbMovie_SelectionChanged">
+				  Height="36">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
