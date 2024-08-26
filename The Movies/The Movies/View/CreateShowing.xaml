@@ -56,8 +56,16 @@
 				  Margin="147,272,0,0"
 				  VerticalAlignment="Top"
 				  Width="136"
-				  Height="36" />
-		<ComboBox x:Name="cbScreen"
+				  Height="36" >
+            <ComboBoxItem Content="08:00"/>
+            <ComboBoxItem Content="10:00"/>
+            <ComboBoxItem Content="12:00"/>
+            <ComboBoxItem Content="14:00"/>
+            <ComboBoxItem Content="16:00"/>
+            <ComboBoxItem Content="18:00"/>
+            <ComboBoxItem Content="20:00"/>
+        </ComboBox>
+        <ComboBox x:Name="cbScreen"
 				  HorizontalAlignment="Left"
 				  Margin="147,344,0,0"
 				  VerticalAlignment="Top"

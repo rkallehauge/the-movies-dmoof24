@@ -26,7 +26,7 @@ namespace The_Movies.View
             CreateShowingViewModel csvm = new CreateShowingViewModel();
             DataContext = csvm;
             
-            
+            //CINEMA
             cbCinema.ItemsSource = csvm.Cinemas; //ItemsSource for biograf combobox er Cinesmas listen i VM...
 
             SelectionChangedEventHandler cinemaSelectionHandler = (sender, e) =>
@@ -38,7 +38,7 @@ namespace The_Movies.View
 
 
 
-
+            //MOVIE
             cbMovie.ItemsSource = csvm.Movies; //ItemsSource for film combobox er Movies listen i VM...
 
             SelectionChangedEventHandler movieSelectionHandler = (sender, e) =>
@@ -47,6 +47,22 @@ namespace The_Movies.View
             };
 
             cbMovie.SelectionChanged += movieSelectionHandler;
+
+            //DATE
+            EventHandler<SelectionChangedEventArgs> dateSelectionHandler = (sender, e) =>
+            {
+                csvm.SelectedDate = DateOnly.FromDateTime((DateTime)dpShowing.SelectedDate);
+            };
+
+            dpShowing.SelectedDateChanged += dateSelectionHandler;
+
+            //TIME
+            SelectionChangedEventHandler timeSelectionHandler = (sender, e) =>
+            {
+                csvm.SelectedTime = TimeOnly.Parse(cbTime.SelectedItem.ToString());
+            };
+
+            cbTime.SelectionChanged += timeSelectionHandler;
         }
 
 

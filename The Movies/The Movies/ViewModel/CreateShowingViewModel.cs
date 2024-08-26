@@ -60,9 +60,33 @@ namespace The_Movies.ViewModel
         }
 
         //TIME
+        private TimeOnly selectedTime;
+        public TimeOnly SelectedTime
+        {
+            get { return selectedTime; }
+            set
+            {
+                selectedTime = value;
+                Debug.WriteLine($"Succes! {value.Hour}:{value.Minute}" );
+            }
+        }
+
 
 
         //DATE
+
+        private DateOnly selectedDate;
+        public DateOnly SelectedDate
+        {
+            get { return selectedDate; }
+            set
+            {
+
+                selectedDate = value;
+                Debug.WriteLine($"Success! {value.Day}");
+                //DateChanged();
+            }
+        }
 
 
         //SCREEN
