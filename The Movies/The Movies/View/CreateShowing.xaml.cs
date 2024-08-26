@@ -59,10 +59,20 @@ namespace The_Movies.View
             //TIME
             SelectionChangedEventHandler timeSelectionHandler = (sender, e) =>
             {
-                csvm.SelectedTime = TimeOnly.Parse(cbTime.SelectedItem.ToString());
+                csvm.SelectedTime = TimeOnly.Parse(((ComboBoxItem)cbTime.SelectedItem).Content.ToString());
             };
 
             cbTime.SelectionChanged += timeSelectionHandler;
+
+            //SCREEN
+            cbScreen.ItemsSource = csvm.Showings; //ItemsSource for biograf combobox er Cinesmas listen i VM...
+
+            SelectionChangedEventHandler showingSelectionHandler = (sender, e) =>
+            {
+                csvm.SelectedScreen = (Model.Screen) cbScreen.SelectedItem;
+            };
+
+            cbScreen.SelectionChanged += showingSelectionHandler;
         }
 
 

@@ -14,13 +14,15 @@ namespace The_Movies.ViewModel
     {
         private Repository<Movie> movieRepo = MovieRepository.GetInstance();
         private Repository<Cinema> cinemaRepo = CinemaRepository.GetInstance();
-        
+        private Repository<Showing> showingRepo = ShowingRepository.GetInstance();
         
         public CreateShowingViewModel()
         {
             cinemas = cinemaRepo.GetAll(); 
 
             movies = movieRepo.GetAll(); 
+
+            showings = showingRepo.GetAll();
 
         }
 
@@ -90,7 +92,21 @@ namespace The_Movies.ViewModel
 
 
         //SCREEN
+        List<Showing> showings;
+        public List<Showing> Showings { get { return showings; } }
 
+        private Screen selectedScreen;
+        public Screen SelectedScreen
+        {
+            get { return selectedScreen; }
+            set
+            {
+
+                selectedScreen = value;
+                Debug.WriteLine($"Success! {value.ScreenNumber}");
+                //DateChanged();
+            }
+        }
 
     }
 }
