@@ -20,9 +20,6 @@ namespace The_Movies.Model
             ScreenNumber = screenNumber;
         }
 
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
+
     }
 }

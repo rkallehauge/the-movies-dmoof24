@@ -23,6 +23,7 @@ namespace The_Movies.ViewModel
             get { return selectedShowing; }
             set { 
                 selectedShowing = value;
+                EditClicked.Invoke(this, new EventArgs());
             }
         }
 
@@ -81,9 +82,15 @@ namespace The_Movies.ViewModel
 
 
         public event EventHandler ShowingsUpdated;
+        public event EventHandler AvailableScreensUpdated;
+        public event EventHandler EditClicked;
+
 
         private void UpdateShowings()
         {
+
+            Debug.WriteLine("Date has bene changefgaergearg");
+
             ShowingsUpdated?.Invoke(this, EventArgs.Empty);
             for(int i = 0; i < 9; i++)
             {
@@ -97,7 +104,7 @@ namespace The_Movies.ViewModel
                 if(showings.FindAll(isSameHour).Count < 5)
                 {
                     availableTimes.Add(new TimeOnly(startingHour + i, 0));
-                    Debug.WriteLine($"available hour : {startingHour + i}");
+                    //Debug.WriteLine($"available hour : {startingHour + i}");
                 }
 
             }
@@ -105,18 +112,37 @@ namespace The_Movies.ViewModel
 
         private void UpdateAvailableScreens()
         {
+
+            List<Screen> screens = selectedCinema.Screens;
+
+            List<Screen> available = new();
+
             Predicate<Showing> showingIsAtSelectedTime = (showing) => {
                 return TimeOnly.FromDateTime(showing.ShowingTime).Equals(selectedAvailableTime);
             };
 
             List<Showing> showingAtSameTime = showings.FindAll(showingIsAtSelectedTime);
-            foreach(Showing showing in showingAtSameTime)
+
+            for(int i = 1; i <= 5; i++)
             {
-                Debug.WriteLine(showing.Screen.ScreenNumber);
+                bool isAvailable = true;
+                foreach(Showing showing in showingAtSameTime)
+                {
+                    if(showing.Screen.ScreenNumber == i)
+                    {
+                        Debug.WriteLine("Screen unavailable");
+                        isAvailable = false;
+                    }
+                }
+                if (isAvailable)
+                {
+                    Debug.WriteLine("Screen available");
+                    available.Add(screens[i-1]);
+                }
+
             }
-
-
-
+            availableScreens = available;
+            AvailableScreensUpdated.Invoke(this, EventArgs.Empty);
         }
 
 
@@ -152,16 +178,10 @@ namespace The_Movies.ViewModel
 
         public void DateChanged()
         {
-
+            Debug.WriteLine("date changed has occured");
             
             showingsForDate = ShowingRepository.GetByDate(selectedDate);
 
-            Debug.WriteLine(showingsForDate.Count);
-            if(showingsForDate is null || showingsForDate.Count == 0)
-            {
-                // TODO : Depopulate list?
-                return;
-            }
 
             Predicate<Showing> IsSameCinema = (showing) =>
             {
@@ -169,6 +189,9 @@ namespace The_Movies.ViewModel
             };
 
             showings = showingsForDate.FindAll(IsSameCinema);
+
+            Debug.WriteLine($"Count of showings : {showings.Count}");
+
             UpdateShowings();
 
         }

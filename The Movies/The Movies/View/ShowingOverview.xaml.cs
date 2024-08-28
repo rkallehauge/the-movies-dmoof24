@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using The_Movies.Model;
 using The_Movies.ViewModel;
+using WinRT;
 
 namespace The_Movies.View
 {
@@ -49,7 +50,7 @@ namespace The_Movies.View
 
             SelectionChangedEventHandler selectedAvailableTimeHandler = (sender, e) =>
             {
-                sovm.SelectedAvailableTime = cbTime.SelectedItem as TimeOnly;
+                sovm.SelectedAvailableTime = TimeOnly.Parse(cbTime.SelectedItem.ToString());
             };
 
             cbTime.SelectionChanged += selectedAvailableTimeHandler;
@@ -62,13 +63,34 @@ namespace The_Movies.View
             cbScreen.SelectionChanged += selectedAvailableScreenHandler;
 
             EventHandler showingsUpdateHandler = (sender, e) => {
+
+                List<UIElement> list = new List<UIElement>();
+                foreach(UIElement elem in Showings.Children)
+                {
+
+                    if((int)elem.GetValue(Grid.ColumnProperty) != 0)
+                    {
+                        list.Add(elem);
+                    } 
+                }
+                foreach(UIElement elem in list)
+                {
+                    Showings.Children.Remove(elem);
+                }
+
+
+                if(sovm.SelectedCinema is null || sovm.SelectedDate == null)
+                {
+                    return;
+                }
+
                 foreach (Showing showing in sovm.Showings)
                 {
                     Screen screen = showing.Screen;
 
-                         StackPanel stackPanel = new StackPanel();
+                        StackPanel stackPanel = new StackPanel();
 
-                        stackPanel.Height = 50;
+                        stackPanel.Height = 150;
                         stackPanel.Width = 130;
 
                         Label label = new Label();
@@ -96,6 +118,7 @@ namespace The_Movies.View
                         RoutedEventHandler clickListener = (sender, e) =>
                         {
                             sovm.SelectedShowing = showing;
+                            //Debug.WriteLine($"current showing : {showing.Movie.Title}");
                         };
 
                         button.Click += clickListener;
@@ -108,9 +131,27 @@ namespace The_Movies.View
                 }
             };
 
-            sovm.ShowingsUpdated += showingsUpdateHandler;
+            EventHandler availableScreensHandler = (sender, e) =>
+            {
+                cbScreen.ItemsSource = sovm.AvailableScreens;
+            };
 
-                        
+            EventHandler BindSelectedShowingData = (sender, e) =>
+            {
+                cbCinemaEdit.SelectedItem = sovm.SelectedShowing.Screen.Cinema;
+                cbMovie.SelectedItem = sovm.SelectedShowing.Movie;
+                cbTime.SelectedItem = TimeOnly.FromDateTime(sovm.SelectedShowing.ShowingTime);
+
+
+                sovm.AvailableScreens.Add(sovm.SelectedShowing.Screen);
+                cbScreen.ItemsSource = sovm.AvailableScreens;
+
+                cbScreen.SelectedItem = sovm.SelectedShowing.Screen;
+            };
+
+            sovm.ShowingsUpdated += showingsUpdateHandler;
+            sovm.AvailableScreensUpdated += availableScreensHandler;
+            sovm.EditClicked += BindSelectedShowingData;
         }
 
        
