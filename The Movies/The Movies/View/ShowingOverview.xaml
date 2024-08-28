@@ -98,7 +98,7 @@
 				  Width="152"
 				  Height="36" 
                   ItemsSource="{Binding Cinemas}"
-                  
+                  SelectedItem="{Binding SelectedCinema}"
                   >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -118,6 +118,7 @@
 				  Width="152"
 				  Height="36"
                   ItemsSource="{Binding Movies}"
+                  SelectedItem="{Binding SelectedMovie}"
                 >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -155,6 +156,7 @@
 				  Width="127"
 				  Height="32" 
                   ItemsSource="{Binding AvailableScreens}"
+                  SelectedItem="{Binding SelectedScreen}"
                   >
             <ComboBox.ItemTemplate>
                 <DataTemplate>

@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using The_Movies.Command;
 using The_Movies.Model;
 using The_Movies.Model.Repo;
 
@@ -26,6 +28,10 @@ namespace The_Movies.ViewModel
                 EditClicked.Invoke(this, new EventArgs());
             }
         }
+
+        private RelayCommand editShowing;
+        public RelayCommand EditShowing { get { return editShowing; } };
+
 
         private DateOnly selectedDate;
         public DateOnly SelectedDate
@@ -56,6 +62,9 @@ namespace The_Movies.ViewModel
             }
         }
 
+        public Screen SelectedScreen { get; set; }
+        public Cinema SelectedCinema { get; set; }
+        public Movie SelectedMovie { get; set; }
 
         private Screen selectedAvailableScreen;
         public Screen SelectedAvailableScreen
@@ -202,8 +211,20 @@ namespace The_Movies.ViewModel
 
             availableTimes = new();
             availableScreens = new();
+            editShowing = new(CanEditShowing, EditShowingMethod);
 
             //showingGigaList = new();
         }
+
+        public bool CanEditShowing(object param)
+        {
+            return true;
+        }
+
+        public void EditShowingMethod(object param)
+        {
+
+        }
+
     }
 }
