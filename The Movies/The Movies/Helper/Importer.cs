@@ -109,37 +109,59 @@ namespace The_Movies.Helper
 
                 // TODO : showing.Movie may potentially point to a different instance than the one stored in the repository
                 showing.Movie = movie;
-                showing.Screens.Add(cinema.Screens.FirstOrDefault());
+
 
                 showingRepo = ShowingRepository.GetInstance();
-                List<Showing> showings = showingRepo.GetAll();
+                List<Showing> showings = ShowingRepository.GetByDate(DateOnly.FromDateTime(showing.ShowingTime));
 
-                Predicate<Showing> showingSameData = (Showing other) =>
+                Predicate<Showing> sameCinema = (other) =>
                 {
-                    return showing.Equals(other);
+                    return other.Screen.Cinema.Equals(cinema);
                 };
 
-                Showing sameShowing = showings.Find(showingSameData);
+                List<Showing> sameCinemaShowings = showings.FindAll(sameCinema);
 
-                if (sameShowing != null)
+                Predicate<Showing> sameTimeOfDay = (other) =>
                 {
-                    int currentScreenAmount = sameShowing.Screens.Count;
+                    //Debug.WriteLine("Multiple showings for one time");
+                    return (other.ShowingTime.Equals(showing.ShowingTime));
+                };
 
-                    // Add screen with at index of count of current screns
-                    sameShowing.Screens.Add(cinema.Screens[currentScreenAmount]);
-                    //Debug.WriteLine(cinema.Screens.Count);
+                List<Showing> sameShowings = sameCinemaShowings.FindAll(sameTimeOfDay);
 
-                    // TODO : I think this code is fucked? 
-                    
-                    Debug.WriteLine($"Sameshowing found! New screen count : {currentScreenAmount} for {sameShowing.Movie.Title} at {sameShowing.ShowingTime.ToString()}");
+
+                int availableScreenNumber = sameShowings.Count();
+                Debug.WriteLine(availableScreenNumber);
+                //Debug.WriteLine($"Available screen number is {availableScreenNumber}");
+
+                Predicate<Showing> movieOnSameDate = (other) =>
+                {
+                    return other.Movie.Equals(showing.Movie);
+                };
+
+                Showing sameshowing = sameShowings.Find(movieOnSameDate);
+
+                if (sameshowing is null)
+                {
+                    showing.Screen = (cinema.Screens[availableScreenNumber]);
+                    showingRepo.Add(showing);
                 }
                 else
                 {
-
-                    showing.Screens.Add(cinema.Screens.FirstOrDefault());
-                    showingRepo.Add(showing);
+                    // TODO : Vend det her med gruppen
+                    /* grundet overlap i odense cinemaxx 2019 12-01 ( 3 ens film, med 3 bookings hver, samtidigt samme biograf. ) 
+                     * altså 9 unikke screens for samme biograf samme dag... af den årsag 
+                     * er det en upraktisk løsning at tilføje en screen per booking for en sideløbende forestilling
+                     * */
+                    //sameshowing.Screens.Add(cinema.Screens[availableScreenNumber]);
                 }
 
+                // find alle showings for dato
+                // find første ledige sal for dato/tid
+                // indsæt ledig sal på showing
+
+
+                
             }
 
             writer = new StreamWriter(exportFile);

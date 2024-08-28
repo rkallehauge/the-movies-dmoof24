@@ -12,12 +12,11 @@ namespace The_Movies.Model
     {
 
         public Movie Movie { get; set; }
-        public List<Screen> Screens { get; set; }
+        public Screen Screen { get; set; }
         public DateTime ShowingTime { get; set; }
 
         public Showing()
         {
-            Screens = new List<Screen>();
         }
 
         public override bool Equals(object? obj)
@@ -35,7 +34,7 @@ namespace The_Movies.Model
 
             if (!other.ShowingTime.Equals(ShowingTime)) return false;
 
-            if (!other.Screens.FirstOrDefault().Cinema.Equals(Screens.FirstOrDefault().Cinema)) return false;
+            if (!other.Screen.Cinema.Equals(Screen.Cinema)) return false;
 
             //Debug.WriteLine("gets here");
             

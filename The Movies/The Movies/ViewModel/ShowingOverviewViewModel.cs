@@ -16,6 +16,15 @@ namespace The_Movies.ViewModel
         private Repository<Cinema> cinemaRepo = CinemaRepository.GetInstance();
         private Repository<Showing> showingRepo = ShowingRepository.GetInstance();
 
+        private Showing selectedShowing;
+
+        public Showing SelectedShowing
+        {
+            get { return selectedShowing; }
+            set { 
+                selectedShowing = value;
+            }
+        }
 
         private DateOnly selectedDate;
         public DateOnly SelectedDate
@@ -28,19 +37,86 @@ namespace The_Movies.ViewModel
             }
         }
 
-
-        private List<List<Showing>> showingHallList;
-        public List<List<Showing>> ShowingHallList
+        private List<TimeOnly> availableTimes;
+        public List<TimeOnly> AvailableTimes
         {
-            get { return showingHallList; }
-            set { showingHallList = value; }
+            get { return availableTimes; }
+            set { availableTimes = value; }
+        }
+
+
+        private TimeOnly selectedAvailableTime;
+        public TimeOnly SelectedAvailableTime
+        {
+            get { return selectedAvailableTime; }
+            set { 
+                selectedAvailableTime = value; 
+                UpdateAvailableScreens();
+            }
+        }
+
+
+        private Screen selectedAvailableScreen;
+        public Screen SelectedAvailableScreen
+        {
+            get { return selectedAvailableScreen; }
+            set { selectedAvailableScreen = value; }
+        }
+
+        private List<Screen> availableScreens;
+        public List<Screen> AvailableScreens
+        {
+            get { return availableScreens; }
+            set { availableScreens = value; }
         }
 
         private List<Showing> showingsForDate;
-        public List<Showing> ShowingsForDate
+
+        private List<Showing> showings;
+        public List<Showing> Showings
         {
-            get { return showingsForDate; }
-            set { showingsForDate = value; }
+            get { return showings; }
+            set { showings = value; }
+        }
+
+
+        public event EventHandler ShowingsUpdated;
+
+        private void UpdateShowings()
+        {
+            ShowingsUpdated?.Invoke(this, EventArgs.Empty);
+            for(int i = 0; i < 9; i++)
+            {
+                int startingHour = 13;
+
+                Predicate<Showing> isSameHour = (showing) =>
+                {
+                    return showing.ShowingTime.Hour == startingHour + i;
+                };
+
+                if(showings.FindAll(isSameHour).Count < 5)
+                {
+                    availableTimes.Add(new TimeOnly(startingHour + i, 0));
+                    Debug.WriteLine($"available hour : {startingHour + i}");
+                }
+
+            }
+        }
+
+        private void UpdateAvailableScreens()
+        {
+            Predicate<Showing> showingIsAtSelectedTime = (showing) => {
+                return TimeOnly.FromDateTime(showing.ShowingTime).Equals(selectedAvailableTime);
+            };
+
+            List<Showing> showingAtSameTime = showings.FindAll(showingIsAtSelectedTime);
+            foreach(Showing showing in showingAtSameTime)
+            {
+                Debug.WriteLine(showing.Screen.ScreenNumber);
+            }
+
+
+
         }
 
 
@@ -48,8 +124,18 @@ namespace The_Movies.ViewModel
         public List<Cinema> Cinemas { get {  return cinemas; } }
 
 
-        public ObservableCollection<MovieViewModel> MoviesVM { get; set; } = new ObservableCollection<MovieViewModel>();
-        public MovieViewModel SelectedMovie { get; set; }
+        List<Movie> movies;
+        public List<Movie> Movies { get { return movies;  } set { movies = value; } }
+
+        private Movie selectedMovie;
+        public Movie SelectedMovie
+        {
+            get { return selectedMovie; }
+            set
+            {
+                selectedMovie = value;
+            }
+        }
 
 
 
@@ -77,23 +163,22 @@ namespace The_Movies.ViewModel
                 return;
             }
 
-
-            // populate gigalist
-            for(int i = 1; i <= 5; i++)
+            Predicate<Showing> IsSameCinema = (showing) =>
             {
+                return showing.Screen.Cinema.Equals(selectedCinema);
+            };
 
-            }
+            showings = showingsForDate.FindAll(IsSameCinema);
+            UpdateShowings();
 
         }
         public ShowingOverviewViewModel()
         {
             cinemas = cinemaRepo.GetAll();
+            movies = movieRepo.GetAll();
 
-            List<Movie> movies = movieRepo.GetAll();
-            foreach (Movie movie in movies)
-            {
-                MoviesVM.Add(new MovieViewModel(movie));
-            }
+            availableTimes = new();
+            availableScreens = new();
 
             //showingGigaList = new();
         }

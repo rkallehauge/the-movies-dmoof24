@@ -14,7 +14,9 @@
 				  Margin="108,18,0,0"
 				  VerticalAlignment="Top"
 				  Width="118"
-				  Height="26">
+				  Height="26"
+                  ItemsSource="{Binding Cinemas}"
+                  >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -33,185 +35,99 @@
         <DatePicker x:Name="dpShowing"
 					HorizontalAlignment="Left"
 					Margin="108,59,0,0"
-					VerticalAlignment="Top" />
-		<ListView Margin="50,106,50,178"
-				  Height="200"
-				  Width="700"
-				  ScrollViewer.VerticalScrollBarVisibility="Auto"
-				  ScrollViewer.HorizontalScrollBarVisibility="Auto">
-			<ListView.View>
-				<GridView>
-					<!-- Definer kolonner -->
-					<GridViewColumn Header="Screening Times"
-									Width="50">
-						<GridViewColumn.CellTemplate>
-							<DataTemplate>
-								<TextBlock Text="{Binding}" />
-							</DataTemplate>
-						</GridViewColumn.CellTemplate>
-					</GridViewColumn>
+					VerticalAlignment="Top"
+                    
+                    />
+        <ScrollViewer
+            Margin="50 106 50 178"
+			Height="200"
+			Width="700"
+            
+            >
 
-					<GridViewColumn Header="Sal 1"
-									Width="130" />
-					<GridViewColumn Header="Sal 2"
-									Width="130" />
-					<GridViewColumn Header="Sal 3"
-									Width="130" />
-					<GridViewColumn Header="Sal 4"
-									Width="130" />
-					<GridViewColumn Header="Sal 5"
-									Width="130" />
-				</GridView>
-			</ListView.View>
-				<ListBox Grid.Column="0">
-					<ListBox.ItemsSource>
-						<x:Array Type="{x:Type sys:String}"
-								 xmlns:sys="clr-namespace:System;assembly=mscorlib">
-							<sys:String>10:00</sys:String>
-							<sys:String>11:00</sys:String>
-							<sys:String>12:00</sys:String>
-							<sys:String>13:00</sys:String>
-							<sys:String>14:00</sys:String>
-							<sys:String>15:00</sys:String>
-							<sys:String>16:00</sys:String>
-							<sys:String>17:00</sys:String>
-							<sys:String>18:00</sys:String>
-							<sys:String>19:00</sys:String>
-							<sys:String>20:00</sys:String>
-							<sys:String>21:00</sys:String>
-							<sys:String>22:00</sys:String>
-						</x:Array>
-					</ListBox.ItemsSource>
-				</ListBox>
-				<ListBox Grid.Column="1"
-						 Width="130"
-						 x:Name="lbScreen1"
-						 ItemsSource="{Binding MoviesVM}">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<TextBlock>
-									<TextBlock.Text>
-										<MultiBinding StringFormat="{}{0}             Price: {1}">
-											<Binding Path="Title" />
-											<Binding Path="Duration" />
-										</MultiBinding>
-									</TextBlock.Text>
-								</TextBlock>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
+            <Grid
+                ShowGridLines="True"
+                Name="Showings"
+                >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="50"/>
+					<ColumnDefinition Width="130"/>
+					<ColumnDefinition Width="130"/>
+					<ColumnDefinition Width="130"/>
+					<ColumnDefinition Width="130"/>
+					<ColumnDefinition Width="130"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+					<RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+				</Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="13:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="14:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="15:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="16:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="17:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="5" Grid.Column="0" Content="18:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="6" Grid.Column="0" Content="19:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="7" Grid.Column="0" Content="20:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Grid.Row="8" Grid.Column="0" Content="21:00" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+        </ScrollViewer>
 
-				<ListBox Grid.Column="2"
-						 Width="130"
-						 x:Name="lbScreen2"
-						 ItemsSource="{Binding MoviesVM}"
-						 SelectedItem="{Binding SelectedProduct}">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<TextBlock>
-									<TextBlock.Text>
-										<MultiBinding StringFormat="{}{0}             Price: {1}">
-											<Binding Path="Title" />
-											<Binding Path="Duration" />
-										</MultiBinding>
-									</TextBlock.Text>
-								</TextBlock>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
 
-				<ListBox Grid.Column="3"
-						 Width="130"
-						 x:Name="lbScreen3"
-						 ItemsSource="{Binding MoviesVM}"
-						 SelectedItem="{Binding SelectedProduct}">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<TextBlock>
-									<TextBlock.Text>
-										<MultiBinding StringFormat="{}{0}             Price: {1}">
-											<Binding Path="Title" />
-											<Binding Path="Duration" />
-										</MultiBinding>
-									</TextBlock.Text>
-								</TextBlock>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
 
-				<ListBox Grid.Column="4"
-						 Width="130"
-						 x:Name="lbScreen4"
-						 ItemsSource="{Binding MoviesVM}"
-						 SelectedItem="{Binding SelectedProduct}">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<StackPanel Orientation="Horizontal">
-								<TextBlock>
-									<TextBlock.Text>
-										<MultiBinding StringFormat="{}{0}             Price: {1}">
-											<Binding Path="Title" />
-											<Binding Path="Duration" />
-										</MultiBinding>
-									</TextBlock.Text>
-								</TextBlock>
-							</StackPanel>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
 
-			<ListBox Grid.Column="5"
-					 Width="130"
-					 x:Name="lbScreen5"
-					 ItemsSource="{Binding MoviesVM}"
-					 SelectedItem="{Binding SelectedProduct}">
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<StackPanel Orientation="Horizontal">
-							<TextBlock>
-								<TextBlock.Text>
-									<MultiBinding StringFormat="{}{0}             Price: {1}">
-										<Binding Path="Title" />
-										<Binding Path="Duration" />
-									</MultiBinding>
-								</TextBlock.Text>
-							</TextBlock>
-						</StackPanel>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
-			</ListBox>
-		</ListView>
-		
-		
-		
-		
-		
-		<Label Content="Biograf"
+        <Label Content="Biograf"
 			   HorizontalAlignment="Left"
 			   Margin="19,18,0,0"
 			   VerticalAlignment="Top"
 			   Width="78"
 			   Background="#FFD01919" />
 
-		<ComboBox x:Name="cbCinema_Copy"
+        <ComboBox x:Name="cbCinemaEdit"
 				  HorizontalAlignment="Left"
 				  Margin="106,332,0,0"
 				  VerticalAlignment="Top"
 				  Width="152"
-				  Height="36" />
-		<ComboBox x:Name="cbMovie"
+				  Height="36" 
+                  ItemsSource="{Binding Cinemas}"
+                  
+                  >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="   "/>
+                        <TextBlock Text="{Binding CityName}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+
+        </ComboBox>
+        <ComboBox x:Name="cbMovie"
 				  HorizontalAlignment="Left"
 				  Margin="106,391,0,0"
 				  VerticalAlignment="Top"
 				  Width="152"
-				  Height="36" />
-		<Label Content="Biograf"
+				  Height="36"
+                  ItemsSource="{Binding Movies}"
+                >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Title}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label Content="Biograf"
 			   HorizontalAlignment="Left"
 			   Margin="43,339,0,0"
 			   VerticalAlignment="Top"
@@ -223,19 +139,25 @@
 			   VerticalAlignment="Top"
 			   Height="26"
 			   Width="64" />
-		<ComboBox x:Name="cbTime"
+        <ComboBox x:Name="cbTime"
 				  HorizontalAlignment="Left"
 				  Margin="390,333,0,0"
 				  VerticalAlignment="Top"
 				  Width="127"
-				  Height="32" />
-		<ComboBox x:Name="cbScreen"
+				  Height="32"
+                  ItemsSource="{Binding AvailableTimes}"
+                  >
+        </ComboBox>
+        <ComboBox x:Name="cbScreen"
 				  HorizontalAlignment="Left"
 				  Margin="390,397,0,0"
 				  VerticalAlignment="Top"
 				  Width="127"
-				  Height="32" />
-		<Label Content="Tidspunkt"
+				  Height="32" 
+                  >
+            
+        </ComboBox>
+        <Label Content="Tidspunkt"
 			   HorizontalAlignment="Left"
 			   Margin="319,334,0,0"
 			   VerticalAlignment="Top"
