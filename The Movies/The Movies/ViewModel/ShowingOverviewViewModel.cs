@@ -25,12 +25,13 @@ namespace The_Movies.ViewModel
             get { return selectedShowing; }
             set { 
                 selectedShowing = value;
+                UpdateAvailableScreens();
                 EditClicked.Invoke(this, new EventArgs());
             }
         }
 
-        private RelayCommand editShowing;
-        public RelayCommand EditShowing { get { return editShowing; } };
+        private RelayCommand saveChanges;
+        public RelayCommand SaveChanges { get { return saveChanges; } }
 
 
         private DateOnly selectedDate;
@@ -63,8 +64,7 @@ namespace The_Movies.ViewModel
         }
 
         public Screen SelectedScreen { get; set; }
-        public Cinema SelectedCinema { get; set; }
-        public Movie SelectedMovie { get; set; }
+
 
         private Screen selectedAvailableScreen;
         public Screen SelectedAvailableScreen
@@ -211,7 +211,7 @@ namespace The_Movies.ViewModel
 
             availableTimes = new();
             availableScreens = new();
-            editShowing = new(CanEditShowing, EditShowingMethod);
+            saveChanges = new(CanEditShowing, EditShowingMethod);
 
             //showingGigaList = new();
         }
@@ -223,7 +223,8 @@ namespace The_Movies.ViewModel
 
         public void EditShowingMethod(object param)
         {
-
+            Showing showing = selectedShowing;
+            
         }
 
     }

@@ -9,7 +9,7 @@ namespace The_Movies.Model
     public class Screen
     {
         Cinema _cinema;
-        public Cinema Cinema { get { return _cinema; } }
+        public Cinema Cinema { get { return _cinema; } set { _cinema = value; } }
 
         public int ScreenNumber { get; set; }
 

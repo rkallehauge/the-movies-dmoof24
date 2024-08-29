@@ -187,7 +187,9 @@
 				VerticalAlignment="Top"
 				Height="34"
 				Width="93"
-				Background="#FF3DD83F" />
+				Background="#FF3DD83F" 
+                Command="{Binding SaveChanges}"
+                />
         <Button x:Name="btnRemoveShowing"
 				Content="Slet forestilling"
 				HorizontalAlignment="Left"
