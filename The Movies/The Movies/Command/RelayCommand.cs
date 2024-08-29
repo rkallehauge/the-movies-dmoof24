@@ -32,7 +32,7 @@ namespace The_Movies.Command
 
         public void Execute(object obj)
         {
-            Execute(obj);
+            MethodExecute(obj);
         }
     }
 }

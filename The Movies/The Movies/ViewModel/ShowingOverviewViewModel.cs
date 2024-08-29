@@ -63,15 +63,9 @@ namespace The_Movies.ViewModel
             }
         }
 
-        public Screen SelectedScreen { get; set; }
 
-
-        private Screen selectedAvailableScreen;
-        public Screen SelectedAvailableScreen
-        {
-            get { return selectedAvailableScreen; }
-            set { selectedAvailableScreen = value; }
-        }
+        private Screen selectedScreen;
+        public Screen SelectedScreen { get { return selectedScreen; } set { selectedScreen = value; } }
 
         private List<Screen> availableScreens;
         public List<Screen> AvailableScreens
@@ -223,8 +217,23 @@ namespace The_Movies.ViewModel
 
         public void EditShowingMethod(object param)
         {
-            Showing showing = selectedShowing;
-            
+            //Debug.WriteLine($"Cinema : {selectedCinema.Name} City : {SelectedCinema.CityName} ");
+            // TODO : implement cinema editing capability
+
+            selectedShowing.Screen.Cinema = SelectedCinema;
+
+            selectedShowing.Movie = SelectedMovie;
+
+            // TODO : Add datepicker to allow date selection
+            selectedShowing.ShowingTime = SelectedDate.ToDateTime(SelectedAvailableTime);
+
+            selectedShowing.Screen = SelectedScreen;
+
+            //Debug.WriteLine($"Movie : {SelectedMovie.Title}");
+            //Debug.WriteLine($"Showing Time : {SelectedAvailableTime.ToString()}");
+            //Debug.WriteLine($"Screen : {SelectedScreen.ScreenNumber}");
+
+            ShowingsUpdated?.Invoke(this, EventArgs.Empty);
         }
 
     }

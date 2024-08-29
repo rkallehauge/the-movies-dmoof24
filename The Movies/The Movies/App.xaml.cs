@@ -21,11 +21,13 @@ namespace The_Movies
     {
 
         string exportFile = "output.csv";
-
+        static ShowingOverview showing;
+        static CreateShowing createShowing;
         public App()
         {
 
-            ShowingOverview showing = new ShowingOverview();
+            showing = new ShowingOverview();
+            createShowing = new CreateShowing();
 
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.FileName = "Document"; // Default file name
@@ -71,7 +73,23 @@ namespace The_Movies
             //cinemaRepo.Add(cinema);
 
 
+            
+
             showing.Show();
+
+            showing.ChangeToCreate += ChangeToCreateView;
+        }
+
+        private void ChangeToOverview()
+        {
+            createShowing.Hide();
+            showing.Show();
+        }
+
+        private void ChangeToCreateView(object sender, EventArgs e)
+        {
+            createShowing.Show();
+            showing.Hide();
         }
     }
 }

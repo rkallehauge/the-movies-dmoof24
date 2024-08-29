@@ -24,6 +24,9 @@ namespace The_Movies.View
     /// </summary>
     public partial class ShowingOverview : Window
     {
+
+        public EventHandler ChangeToCreate;
+
         public ShowingOverview()
         {
             InitializeComponent();
@@ -119,6 +122,8 @@ namespace The_Movies.View
                         {
                             sovm.SelectedShowing = showing;
                             //Debug.WriteLine($"current showing : {showing.Movie.Title}");
+
+
                         };
 
                         button.Click += clickListener;
@@ -152,9 +157,47 @@ namespace The_Movies.View
             sovm.ShowingsUpdated += showingsUpdateHandler;
             sovm.AvailableScreensUpdated += availableScreensHandler;
             sovm.EditClicked += BindSelectedShowingData;
+            Showings.MouseLeftButtonDown += CalculateGridPosition;
+
+
         }
 
-       
+        private void CalculateGridPosition(object sender, MouseButtonEventArgs e)
+        {
+            var grid = sender as Grid;
+
+            // Get the position of the mouse click relative to the grid
+            Point point = e.GetPosition(grid);
+
+            // Determine the row
+            int rowIndex = 0;
+            double accumulatedHeight = 0.0;
+            foreach (var rowDefinition in grid.RowDefinitions)
+            {
+                accumulatedHeight += rowDefinition.ActualHeight;
+                if (accumulatedHeight >= point.Y)
+                    break;
+                rowIndex++;
+            }
+
+            // Determine the column
+            int columnIndex = 0;
+            double accumulatedWidth = 0.0;
+            foreach (var columnDefinition in grid.ColumnDefinitions)
+            {
+                accumulatedWidth += columnDefinition.ActualWidth;
+                if (accumulatedWidth >= point.X)
+                    break;
+                columnIndex++;
+            }
+
+            // TODO : Determine whether position pressed is either label for time, or is populated with showing
+
+
+            ChangeToCreate?.Invoke(this, EventArgs.Empty);
+        }
+
+
 
     }
 }
