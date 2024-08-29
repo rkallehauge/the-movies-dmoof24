@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -162,6 +163,10 @@ namespace The_Movies.View
 
         }
 
+
+        /**
+         * Hit detection for grid from ChatGPT
+         * */
         private void CalculateGridPosition(object sender, MouseButtonEventArgs e)
         {
             var grid = sender as Grid;
@@ -194,9 +199,20 @@ namespace The_Movies.View
             // TODO : Determine whether position pressed is either label for time, or is populated with showing
 
 
-            ChangeToCreate?.Invoke(this, EventArgs.Empty);
+
+
+            //CreateShowingEventArgs e = new();
+            //e.TimeForShowing = 
+
+
+            //ChangeToCreate?.Invoke(this, EventArgs.Empty);
         }
 
+
+        public class CreateShowingEventArgs : EventArgs
+        {
+            public DateTime TimeForShowing { get; set; }
+        }
 
 
     }
